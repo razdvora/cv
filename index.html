@@ -1,121 +1,863 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Raz Dvora</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <link href="https://fonts.googleapis.com/css?family=Merriweather|Montserrat|Sacramento" rel="stylesheet">
-  <link rel="icon" href="favicon.ico">
-  <script src="https://kit.fontawesome.com/06fe061d41.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCB Testing Report</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+            background-color: #f4f7f9;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        /* PCB Section Styles */
+        .pcb-section {
+            background-color: #fff;
+            margin-bottom: 20px;
+            border: 1px solid #e1e4e8;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .pcb-section h3 {
+            margin-top: 0;
+            color: #34495e;
+        }
+
+        .inputs-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .input-field {
+            flex: 1 1 45%;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+        }
+
+        .input-field label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .input-field input {
+            padding: 8px;
+            border: 1px solid #ccd1d9;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        /* Button Styles */
+        #generateReportButton {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #2980b9;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        #generateReportButton:hover {
+            background-color: #1c5980;
+        }
+
+        /* Report Table Styles */
+        #reportTable {
+            margin-top: 30px;
+            border-collapse: collapse;
+            width: 100%;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        #reportTable th, #reportTable td {
+            border: 1px solid #e1e4e8;
+            padding: 12px;
+            text-align: center;
+        }
+
+        #reportTable th {
+            background-color: #2980b9;
+            color: #fff;
+        }
+
+        /* Charts Container */
+        .charts-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+
+        .chart-wrapper {
+            background-color: #fff;
+            padding: 15px;
+            border: 1px solid #e1e4e8;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 800px;
+            height: 500px; /* Fixed height for better performance */
+        }
+
+        .chart-wrapper h4 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #34495e;
+        }
+
+        canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .input-field {
+                flex: 1 1 100%;
+            }
+
+            .charts-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            #generateReportButton {
+                font-size: 16px;
+                padding: 10px;
+            }
+
+            .chart-wrapper h4 {
+                font-size: 16px;
+            }
+        }
+    </style>
 </head>
-
 <body>
-  <div class="top-container">
-    <img class="top-cloud" src="images/cloud.png" alt="cloud">
-    <div class="title-text">
-      <h1>I'm Raz Dvora.</h1>
 
-      <h2>a <span class="pro">pro</span>grammer.</h2>
+    <h1>PCB Testing Report Generator</h1>
+
+    <div>
+        <!-- PCB Sections (QFEM 418x, QFEM 428x, MCU 1503, MCU 1513, EPS, MBF) -->
+        <!-- QFEM 418x -->
+        <div class="pcb-section">
+            <h3>QFEM 418x</h3>
+            <div class="inputs-group">
+                <div class="input-field">
+                    <label for="qfem418_ft_pass">FT Passed:</label>
+                    <input type="number" id="qfem418_ft_pass" placeholder="FT Passed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="qfem418_ft_fail">FT Failed:</label>
+                    <input type="number" id="qfem418_ft_fail" placeholder="FT Failed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="qfem418_burn_pass">Burn-in Passed:</label>
+                    <input type="number" id="qfem418_burn_pass" placeholder="Burn-in Passed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="qfem418_burn_fail">Burn-in Failed:</label>
+                    <input type="number" id="qfem418_burn_fail" placeholder="Burn-in Failed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="qfem418_shaker_pass">Shaker Passed:</label>
+                    <input type="number" id="qfem418_shaker_pass" placeholder="Shaker Passed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="qfem418_shaker_fail">Shaker Failed:</label>
+                    <input type="number" id="qfem418_shaker_fail" placeholder="Shaker Failed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="qfem418_th_pass">TH Passed:</label>
+                    <input type="number" id="qfem418_th_pass" placeholder="TH Passed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="qfem418_th_fail">TH Failed:</label>
+                    <input type="number" id="qfem418_th_fail" placeholder="TH Failed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="qfem418_balancer_pass">Balancer Passed:</label>
+                    <input type="number" id="qfem418_balancer_pass" placeholder="Balancer Passed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="qfem418_balancer_fail">Balancer Failed:</label>
+                    <input type="number" id="qfem418_balancer_fail" placeholder="Balancer Failed" min="0">
+                </div>
+            </div>
+        </div>
+
+        <!-- QFEM 428x -->
+        <div class="pcb-section">
+            <h3>QFEM 428x</h3>
+            <div class="inputs-group">
+                <div class="input-field">
+                    <label for="qfem428_ft_pass">FT Passed:</label>
+                    <input type="number" id="qfem428_ft_pass" placeholder="FT Passed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="qfem428_ft_fail">FT Failed:</label>
+                    <input type="number" id="qfem428_ft_fail" placeholder="FT Failed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="qfem428_burn_pass">Burn-in Passed:</label>
+                    <input type="number" id="qfem428_burn_pass" placeholder="Burn-in Passed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="qfem428_burn_fail">Burn-in Failed:</label>
+                    <input type="number" id="qfem428_burn_fail" placeholder="Burn-in Failed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="qfem428_shaker_pass">Shaker Passed:</label>
+                    <input type="number" id="qfem428_shaker_pass" placeholder="Shaker Passed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="qfem428_shaker_fail">Shaker Failed:</label>
+                    <input type="number" id="qfem428_shaker_fail" placeholder="Shaker Failed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="qfem428_th_pass">TH Passed:</label>
+                    <input type="number" id="qfem428_th_pass" placeholder="TH Passed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="qfem428_th_fail">TH Failed:</label>
+                    <input type="number" id="qfem428_th_fail" placeholder="TH Failed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="qfem428_balancer_pass">Balancer Passed:</label>
+                    <input type="number" id="qfem428_balancer_pass" placeholder="Balancer Passed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="qfem428_balancer_fail">Balancer Failed:</label>
+                    <input type="number" id="qfem428_balancer_fail" placeholder="Balancer Failed" min="0">
+                </div>
+            </div>
+        </div>
+
+        <!-- MCU 1503 -->
+        <div class="pcb-section">
+            <h3>MCU 1503</h3>
+            <div class="inputs-group">
+                <div class="input-field">
+                    <label for="mcu1503_ft_pass">FT Passed:</label>
+                    <input type="number" id="mcu1503_ft_pass" placeholder="FT Passed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="mcu1503_ft_fail">FT Failed:</label>
+                    <input type="number" id="mcu1503_ft_fail" placeholder="FT Failed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="mcu1503_burn_pass">Burn-in Passed:</label>
+                    <input type="number" id="mcu1503_burn_pass" placeholder="Burn-in Passed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="mcu1503_burn_fail">Burn-in Failed:</label>
+                    <input type="number" id="mcu1503_burn_fail" placeholder="Burn-in Failed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="mcu1503_shaker_pass">Shaker Passed:</label>
+                    <input type="number" id="mcu1503_shaker_pass" placeholder="Shaker Passed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="mcu1503_shaker_fail">Shaker Failed:</label>
+                    <input type="number" id="mcu1503_shaker_fail" placeholder="Shaker Failed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="mcu1503_th_pass">TH Passed:</label>
+                    <input type="number" id="mcu1503_th_pass" placeholder="TH Passed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="mcu1503_th_fail">TH Failed:</label>
+                    <input type="number" id="mcu1503_th_fail" placeholder="TH Failed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="mcu1503_final_flash_pass">Final Flashing Passed:</label>
+                    <input type="number" id="mcu1503_final_flash_pass" placeholder="Final Flashing Passed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="mcu1503_final_flash_fail">Final Flashing Failed:</label>
+                    <input type="number" id="mcu1503_final_flash_fail" placeholder="Final Flashing Failed" min="0">
+                </div>
+            </div>
+        </div>
+
+        <!-- MCU 1513 -->
+        <div class="pcb-section">
+            <h3>MCU 1513</h3>
+            <div class="inputs-group">
+                <div class="input-field">
+                    <label for="mcu1513_ft_pass">FT Passed:</label>
+                    <input type="number" id="mcu1513_ft_pass" placeholder="FT Passed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="mcu1513_ft_fail">FT Failed:</label>
+                    <input type="number" id="mcu1513_ft_fail" placeholder="FT Failed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="mcu1513_burn_pass">Burn-in Passed:</label>
+                    <input type="number" id="mcu1513_burn_pass" placeholder="Burn-in Passed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="mcu1513_burn_fail">Burn-in Failed:</label>
+                    <input type="number" id="mcu1513_burn_fail" placeholder="Burn-in Failed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="mcu1513_shaker_pass">Shaker Passed:</label>
+                    <input type="number" id="mcu1513_shaker_pass" placeholder="Shaker Passed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="mcu1513_shaker_fail">Shaker Failed:</label>
+                    <input type="number" id="mcu1513_shaker_fail" placeholder="Shaker Failed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="mcu1513_th_pass">TH Passed:</label>
+                    <input type="number" id="mcu1513_th_pass" placeholder="TH Passed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="mcu1513_th_fail">TH Failed:</label>
+                    <input type="number" id="mcu1513_th_fail" placeholder="TH Failed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="mcu1513_final_flash_pass">Final Flashing Passed:</label>
+                    <input type="number" id="mcu1513_final_flash_pass" placeholder="Final Flashing Passed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="mcu1513_final_flash_fail">Final Flashing Failed:</label>
+                    <input type="number" id="mcu1513_final_flash_fail" placeholder="Final Flashing Failed" min="0">
+                </div>
+            </div>
+        </div>
+
+        <!-- EPS -->
+        <div class="pcb-section">
+            <h3>EPS</h3>
+            <div class="inputs-group">
+                <div class="input-field">
+                    <label for="eps_ft_pass">FT Passed:</label>
+                    <input type="number" id="eps_ft_pass" placeholder="FT Passed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="eps_ft_fail">FT Failed:</label>
+                    <input type="number" id="eps_ft_fail" placeholder="FT Failed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="eps_burn_pass">Burn-in Passed:</label>
+                    <input type="number" id="eps_burn_pass" placeholder="Burn-in Passed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="eps_burn_fail">Burn-in Failed:</label>
+                    <input type="number" id="eps_burn_fail" placeholder="Burn-in Failed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="eps_shaker_pass">Shaker Passed:</label>
+                    <input type="number" id="eps_shaker_pass" placeholder="Shaker Passed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="eps_shaker_fail">Shaker Failed:</label>
+                    <input type="number" id="eps_shaker_fail" placeholder="Shaker Failed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="eps_th_pass">TH Passed:</label>
+                    <input type="number" id="eps_th_pass" placeholder="TH Passed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="eps_th_fail">TH Failed:</label>
+                    <input type="number" id="eps_th_fail" placeholder="TH Failed" min="0">
+                </div>
+            </div>
+        </div>
+
+        <!-- MBF -->
+        <div class="pcb-section">
+            <h3>MBF</h3>
+            <div class="inputs-group">
+                <div class="input-field">
+                    <label for="mbf_ft_pass">FT Passed:</label>
+                    <input type="number" id="mbf_ft_pass" placeholder="FT Passed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="mbf_ft_fail">FT Failed:</label>
+                    <input type="number" id="mbf_ft_fail" placeholder="FT Failed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="mbf_burn_pass">Burn-in Passed:</label>
+                    <input type="number" id="mbf_burn_pass" placeholder="Burn-in Passed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="mbf_burn_fail">Burn-in Failed:</label>
+                    <input type="number" id="mbf_burn_fail" placeholder="Burn-in Failed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="mbf_shaker_pass">Shaker Passed:</label>
+                    <input type="number" id="mbf_shaker_pass" placeholder="Shaker Passed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="mbf_shaker_fail">Shaker Failed:</label>
+                    <input type="number" id="mbf_shaker_fail" placeholder="Shaker Failed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="mbf_th_pass">TH Passed:</label>
+                    <input type="number" id="mbf_th_pass" placeholder="TH Passed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="mbf_th_fail">TH Failed:</label>
+                    <input type="number" id="mbf_th_fail" placeholder="TH Failed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="mbf_final_flash_pass">Final Flashing Passed:</label>
+                    <input type="number" id="mbf_final_flash_pass" placeholder="Final Flashing Passed" min="0">
+                </div>
+                <div class="input-field">
+                    <label for="mbf_final_flash_fail">Final Flashing Failed:</label>
+                    <input type="number" id="mbf_final_flash_fail" placeholder="Final Flashing Failed" min="0">
+                </div>
+            </div>
+        </div>
+
+        <button id="generateReportButton">Generate Report</button>
+
+        <table id="reportTable">
+            <thead>
+                <tr>
+                    <th>Test Name</th>
+                    <th>Passed</th>
+                    <th>Failed</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <div class="charts-container">
+            <!-- Chart Wrappers for Each PCB -->
+            <div class="chart-wrapper">
+                <h4>QFEM 418x Test Summary</h4>
+                <canvas id="qfem418Chart"></canvas>
+            </div>
+            <div class="chart-wrapper">
+                <h4>QFEM 428x Test Summary</h4>
+                <canvas id="qfem428Chart"></canvas>
+            </div>
+            <div class="chart-wrapper">
+                <h4>MCU 1503 Test Summary</h4>
+                <canvas id="mcu1503Chart"></canvas>
+            </div>
+            <div class="chart-wrapper">
+                <h4>MCU 1513 Test Summary</h4>
+                <canvas id="mcu1513Chart"></canvas>
+            </div>
+            <div class="chart-wrapper">
+                <h4>EPS Test Summary</h4>
+                <canvas id="epsChart"></canvas>
+            </div>
+            <div class="chart-wrapper">
+                <h4>MBF Test Summary</h4>
+                <canvas id="mbfChart"></canvas>
+            </div>
+        </div>
+
     </div>
-    <img class="bottom-cloud" src="images/cloud.png" alt="cloud">
-    <img class="mountain" src="images/mountain.png" alt="mountain-img">
-  </div>
 
-  <div class="middle-container">
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Chart.js Data Labels Plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+    <script>
+        // Register the Data Labels plugin with Chart.js
+        Chart.register(ChartDataLabels);
 
-    <div class="profile">
-   <img src="images/me.jpg" alt="Raz"  style="height:10%; width:10%; border-radius:50%;" >
-      <h2>Hello.</h2>
-      <p class="intro">I'm an electrical engineering student, a programmer, and an avid gamer </p>
-      <h2>Looking for my first job.</h2>
-      <p style="width:30%; margin-left:35%;">
-        Driven Electrical & Electronics Engineering student with a keen interest in hardware development, eager to apply theoretical knowledge in practical settings. Highly adept in circuit design, embedded systems, and firmware programming, with hands-on experience in Arduino and sensor technologies. Seeking a challenging hardware development student role available 3-4 days a week, where I can contribute to innovative projects while further honing my technical skills. 
-  </p>
-      </p>
-    </div>
-    <hr>
-    <!-- Portfolio Section -->
-<section id="portfolio">
-  <h2>Projects</h2>
-  <!-- Media Control Project -->
-  <div class="project">
-    <h3>Media Control via Gesture Recognition</h3>
-    <p>Implemented a media control system using gesture recognition,OpenCV, mediapip</p>
-  <!-- Embedding YouTube Video -->
+        // Initialize Chart Instances Object
+        const chartInstances = {};
 
-    <iframe width="560" height="315" src="https://www.youtube.com/watch?v=ZryROE7-fRM&ab_channel=RAZdvora" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<p>If the video does not load, you can watch it here: <a href="https://www.youtube.com/watch?v=ZryROE7-fRM&ab_channel=RAZdvora" target="_blank">Watch Video</a></p>
+        // Function to destroy existing charts
+        function destroyCharts() {
+            const chartIds = ['qfem418Chart', 'qfem428Chart', 'mcu1503Chart', 'mcu1513Chart', 'epsChart', 'mbfChart'];
+            chartIds.forEach(chartId => {
+                if (chartInstances[chartId]) {
+                    chartInstances[chartId].destroy();
+                    delete chartInstances[chartId];
+                }
+            });
+        }
 
-  </div>
+        // Function to generate grouped bar charts for each PCB
+        function generateGroupedBarChart(pcbId, pcbName, testData) {
+            const ctx = document.getElementById(pcbId).getContext('2d');
 
+            chartInstances[pcbId] = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(testData), // Test Types (FT, Burn-in, Shaker, etc.)
+                    datasets: [
+                        {
+                            label: 'Passed',
+                            data: Object.values(testData).map(test => test.passed),
+                            backgroundColor: '#2ecc71'
+                        },
+                        {
+                            label: 'Failed',
+                            data: Object.values(testData).map(test => test.failed),
+                            backgroundColor: '#e74c3c'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    size: 14
+                                }
+                            }
+                        },
+                        datalabels: {
+                            anchor: 'end',
+                            align: 'start',
+                            color: '#34495e',
+                            formatter: (value, context) => {
+                                return value;
+                            },
+                            font: {
+                                weight: 'bold',
+                                size: 14
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += context.parsed.y;
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                stepSize: 1
+                            },
+                            title: {
+                                display: true,
+                                text: 'Number of Tests',
+                                font: {
+                                    size: 16,
+                                    weight: 'bold'
+                                }
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Test Types',
+                                font: {
+                                    size: 16,
+                                    weight: 'bold'
+                                }
+                            }
+                        }
+                    }
+                },
+                plugins: [ChartDataLabels]
+            });
+        }
 
-  <!-- Owl Detection System Project -->
-  <div class="project">
-    <h3>Intruder Detection System</h3>
-    <p>Developed an intruder alarm system using PIR, rf tech..</p>
-  <!-- Embedding YouTube Video -->
-  <iframe width="560" height="315" src="https://youtu.be/wOnn2J0OEyg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<p>If the video does not load, you can watch it here: <a href="https://youtu.be/wOnn2J0OEyg" target="_blank">Watch Video</a></p>
+        document.getElementById('generateReportButton').addEventListener('click', function() {
+            const reportTable = document.getElementById('reportTable').getElementsByTagName('tbody')[0];
+            reportTable.innerHTML = ''; // Clear existing table rows
 
-  </div>
+            const allData = {
+                'QFEM 418x': {
+                    FT: { passed: 0, failed: 0 },
+                    'Burn-in': { passed: 0, failed: 0 },
+                    Shaker: { passed: 0, failed: 0 },
+                    TH: { passed: 0, failed: 0 },
+                    Balancer: { passed: 0, failed: 0 }
+                },
+                'QFEM 428x': {
+                    FT: { passed: 0, failed: 0 },
+                    'Burn-in': { passed: 0, failed: 0 },
+                    Shaker: { passed: 0, failed: 0 },
+                    TH: { passed: 0, failed: 0 },
+                    Balancer: { passed: 0, failed: 0 }
+                },
+                'MCU 1503': {
+                    FT: { passed: 0, failed: 0 },
+                    'Burn-in': { passed: 0, failed: 0 },
+                    Shaker: { passed: 0, failed: 0 },
+                    TH: { passed: 0, failed: 0 },
+                    'Final Flashing': { passed: 0, failed: 0 }
+                },
+                'MCU 1513': {
+                    FT: { passed: 0, failed: 0 },
+                    'Burn-in': { passed: 0, failed: 0 },
+                    Shaker: { passed: 0, failed: 0 },
+                    TH: { passed: 0, failed: 0 },
+                    'Final Flashing': { passed: 0, failed: 0 }
+                },
+                'EPS': {
+                    FT: { passed: 0, failed: 0 },
+                    'Burn-in': { passed: 0, failed: 0 },
+                    Shaker: { passed: 0, failed: 0 },
+                    TH: { passed: 0, failed: 0 }
+                },
+                'MBF': {
+                    FT: { passed: 0, failed: 0 },
+                    'Burn-in': { passed: 0, failed: 0 },
+                    Shaker: { passed: 0, failed: 0 },
+                    TH: { passed: 0, failed: 0 },
+                    'Final Flashing': { passed: 0, failed: 0 }
+                }
+            };
 
-</section>
-<!-- Portfolio Section -->
-<section id="portfolio">
-  <h2>Projects</h2>
+            const sections = ['QFEM 418x', 'QFEM 428x', 'MCU 1503', 'MCU 1513', 'EPS', 'MBF'];
 
-  <!-- Metal Detector Project -->
-<div class="project">
-  <h3>Metal Detector Circuit Design</h3>
-  <p>Engineered and simulated a metal detector circuit with documented findings in a comprehensive video presentation.</p>
-  <!-- Embedding YouTube Video -->
-  <iframe width="560" height="315" src="https://youtu.be/V5IObSEDviQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<p>If the video does not load, you can watch it here: <a href="https://youtu.be/V5IObSEDviQ" target="_blank">Watch Video</a></p>
+            sections.forEach(section => {
+                // Generate the correct ID prefix by removing spaces and 'x'
+                let idPrefix = section.toLowerCase().replace(/ /g, '').replace(/x/g, '');
 
-</div>
+                // Retrieve input values
+                const ftPassed = parseInt(document.getElementById(`${idPrefix}_ft_pass`).value) || 0;
+                const ftFailed = parseInt(document.getElementById(`${idPrefix}_ft_fail`).value) || 0;
+                const burnPassed = parseInt(document.getElementById(`${idPrefix}_burn_pass`).value) || 0;
+                const burnFailed = parseInt(document.getElementById(`${idPrefix}_burn_fail`).value) || 0;
+                const shakerPassed = parseInt(document.getElementById(`${idPrefix}_shaker_pass`).value) || 0;
+                const shakerFailed = parseInt(document.getElementById(`${idPrefix}_shaker_fail`).value) || 0;
+                const thPassed = parseInt(document.getElementById(`${idPrefix}_th_pass`).value) || 0;
+                const thFailed = parseInt(document.getElementById(`${idPrefix}_th_fail`).value) || 0;
+                let balancerPassed = 0;
+                let balancerFailed = 0;
+                let finalFlashPassed = 0;
+                let finalFlashFailed = 0;
 
-  </div>
+                if (section.startsWith('QFEM')) {
+                    balancerPassed = parseInt(document.getElementById(`${idPrefix}_balancer_pass`).value) || 0;
+                    balancerFailed = parseInt(document.getElementById(`${idPrefix}_balancer_fail`).value) || 0;
+                }
 
-  <!-- Media Control Project -->
-    <div class="skills">
-      <h2>My Skills.</h2>
+                if (section.startsWith('MCU') || section === 'MBF') {
+                    finalFlashPassed = parseInt(document.getElementById(`${idPrefix}_final_flash_pass`).value) || 0;
+                    finalFlashFailed = parseInt(document.getElementById(`${idPrefix}_final_flash_fail`).value) || 0;
+                }
 
+                // Populate allData object
+                if (section === 'MBF') {
+                    allData[section]['Final Flashing'] = { passed: finalFlashPassed, failed: finalFlashFailed };
+                } else if (section === 'MCU 1503' || section === 'MCU 1513') {
+                    allData[section]['Final Flashing'] = { passed: finalFlashPassed, failed: finalFlashFailed };
+                }
 
+                allData[section].FT.passed += ftPassed;
+                allData[section].FT.failed += ftFailed;
+                allData[section]['Burn-in'].passed += burnPassed;
+                allData[section]['Burn-in'].failed += burnFailed;
+                allData[section].Shaker.passed += shakerPassed;
+                allData[section].Shaker.failed += shakerFailed;
+                allData[section].TH.passed += thPassed;
+                allData[section].TH.failed += thFailed;
 
-        <h3  style="font-family: 'Sacramento', cursive;font-size:4em">Technologies </h3>
-        <br>
-        <i class="fa-solid fa-microchip fa-5x" style="margin-left:5px"></i><i style="margin-left:5px" class="fa-solid fa-gears"></i><i style="margin-left:5px" class="fa-solid fa-memory"></i></h3>
-        <br>
-        <br>
-        <i class="fa-brands fa-python fa-5x"></i>
-        <i class="fa-solid fa-c fa-5x" style="margin-left:15px"></i>
-        
-        
+                if (section.startsWith('QFEM')) {
+                    allData[section].Balancer.passed += balancerPassed;
+                    allData[section].Balancer.failed += balancerFailed;
+                }
 
+                // Add rows to report table
+                reportTable.innerHTML += `
+                    <tr>
+                        <td>${section} - FT</td>
+                        <td>${ftPassed}</td>
+                        <td>${ftFailed}</td>
+                    </tr>
+                    <tr>
+                        <td>${section} - Burn-in</td>
+                        <td>${burnPassed}</td>
+                        <td>${burnFailed}</td>
+                    </tr>
+                    <tr>
+                        <td>${section} - Shaker</td>
+                        <td>${shakerPassed}</td>
+                        <td>${shakerFailed}</td>
+                    </tr>
+                    <tr>
+                        <td>${section} - TH</td>
+                        <td>${thPassed}</td>
+                        <td>${thFailed}</td>
+                    </tr>
+                `;
 
-      </div>
-        <h3></h3>
-        <p></p>
+                if (section.startsWith('QFEM')) {
+                    reportTable.innerHTML += `
+                        <tr>
+                            <td>${section} - Balancer</td>
+                            <td>${balancerPassed}</td>
+                            <td>${balancerFailed}</td>
+                        </tr>
+                    `;
+                }
 
-      </div>
-    </div>
-    <hr>
-    <div class="contact-me">
-      <h2>Get In Touch</h2>
-      <h3>.</h3>
+                if (section === 'MCU 1503' || section === 'MCU 1513' || section === 'MBF') {
+                    reportTable.innerHTML += `
+                        <tr>
+                            <td>${section} - Final Flashing</td>
+                            <td>${finalFlashPassed}</td>
+                            <td>${finalFlashFailed}</td>
+                        </tr>
+                    `;
+                }
+            });
 
-      <a class="btn" href="mailto:Razdvora232@gmail.com">CONTACT ME</a>
-    </div>
-  </div>
+            // Destroy existing charts to prevent memory leaks and performance issues
+            destroyCharts();
 
+            // Generate Grouped Bar Charts for Each PCB
+            const chartDataMap = {
+                'QFEM 418x': allData['QFEM 418x'],
+                'QFEM 428x': allData['QFEM 428x'],
+                'MCU 1503': allData['MCU 1503'],
+                'MCU 1513': allData['MCU 1513'],
+                'EPS': allData['EPS'],
+                'MBF': allData['MBF']
+            };
 
-  <div class="bottom-container">
-    <a class="footer-link" href="https://www.linkedin.com/in/raz-dvora-201b21146/">LinkedIn<i class="fa-brands fa-linkedin-in"style="margin-left:5px;"></i></a>
-    <a class="footer-link" href="https://www.facebook.com/profile.php?id=100001329788042">Facebook<i class="fa-brands fa-facebook-f" style="margin-left:5px;"></i></a>
-    <a class="footer-link" href="https://github.com/razdvora">Github <i class="fa-brands fa-github"></i></a>
-    <p class="copyright">© 2022 Raz Dvora.</p>
-  </div>
+            for (const [pcbName, testData] of Object.entries(chartDataMap)) {
+                const pcbId = pcbName.toLowerCase().replace(/ /g, '').replace(/x/g, '').replace(/3/g, '3').replace(/1/g, '1').replace(/b/g, 'b').replace(/f/g, 'f');
+                generateGroupedBarChart(`${pcbId}Chart`, pcbName, testData);
+            }
+        });
+
+        // Function to generate grouped bar chart for a specific PCB
+        function generateGroupedBarChart(pcbId, pcbName, testData) {
+            const ctx = document.getElementById(pcbId).getContext('2d');
+
+            // Extract test types and corresponding data
+            const testTypes = Object.keys(testData);
+            const passedData = testTypes.map(test => testData[test].passed);
+            const failedData = testTypes.map(test => testData[test].failed);
+
+            chartInstances[pcbId] = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: testTypes,
+                    datasets: [
+                        {
+                            label: 'Passed',
+                            data: passedData,
+                            backgroundColor: '#2ecc71'
+                        },
+                        {
+                            label: 'Failed',
+                            data: failedData,
+                            backgroundColor: '#e74c3c'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    size: 14
+                                }
+                            }
+                        },
+                        datalabels: {
+                            anchor: 'end',
+                            align: 'start',
+                            color: '#34495e',
+                            formatter: (value, context) => {
+                                return value;
+                            },
+                            font: {
+                                weight: 'bold',
+                                size: 14
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += context.parsed.y;
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                stepSize: 1
+                            },
+                            title: {
+                                display: true,
+                                text: 'Number of Tests',
+                                font: {
+                                    size: 16,
+                                    weight: 'bold'
+                                }
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Test Types',
+                                font: {
+                                    size: 16,
+                                    weight: 'bold'
+                                }
+                            }
+                        }
+                    }
+                },
+                plugins: [ChartDataLabels]
+            });
+        }
+    </script>
 </body>
-
 </html>
