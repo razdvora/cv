@@ -26,6 +26,10 @@
             padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: var(--font-family);
             line-height: 1.7;
@@ -401,6 +405,21 @@
             color: var(--light-color);
             padding: 0 0.5rem;
         }
+        
+        /* --- Hamburger Menu for Mobile --- */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .menu-toggle .bar {
+            height: 3px;
+            width: 25px;
+            background-color: var(--dark-color);
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+
 
         /* --- Responsiveness --- */
         @media (max-width: 992px) {
@@ -414,40 +433,46 @@
             .contact-grid {
                 grid-template-columns: 1fr;
             }
-        }
-        
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 2rem; }
-
-            #navbar {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            #navbar .logo {
-                margin-bottom: 1rem;
-            }
-
             #navbar ul {
+                display: none; /* Hide nav links by default on tablet/mobile */
                 flex-direction: column;
-                align-items: flex-start;
                 width: 100%;
+                text-align: center;
+                background-color: var(--light-color);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                border-bottom: 1px solid #ddd;
+            }
+            #navbar ul.active {
+                display: flex; /* Show when active */
             }
             #navbar ul li {
-                padding: 0.5rem 0;
                 width: 100%;
             }
             #navbar ul li a {
+                padding: 1rem;
                 display: block;
-                padding-left: 0;
+                border-bottom: 1px solid #eee;
             }
             #navbar .btn {
-                margin-top: 1rem;
+                display: none; /* Hide button in nav bar, handled by menu */
             }
+            .menu-toggle {
+                display: flex; /* Show hamburger icon */
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            h3 { font-size: 1.5rem; }
 
-            #hero h1 { font-size: 2.8rem; }
-            #hero p { font-size: 1.2rem; }
+            #hero h1 { font-size: 2.5rem; }
+            #hero p { font-size: 1.1rem; }
 
             #main-footer .footer-content {
                 flex-direction: column;
@@ -455,6 +480,7 @@
 
             #main-footer ul {
                 margin-top: 1rem;
+                margin-bottom: 1rem;
             }
         }
     </style>
@@ -464,7 +490,12 @@
         <div class="container">
             <nav id="navbar">
                 <a href="#home" class="logo nav-link">Pro-Pave</a>
-                <ul>
+                <div class="menu-toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <ul class="nav-list">
                     <li><a href="#home" class="nav-link current">Home</a></li>
                     <li><a href="#line-striping" class="nav-link">Line Striping</a></li>
                     <li><a href="#ada-compliance" class="nav-link">ADA Compliance</a></li>
@@ -472,8 +503,8 @@
                     <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="#gallery" class="nav-link">Our Work</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="#contact" class="btn nav-link" style="margin-top: 1rem; display: inline-block;">Get a FREE Quote</a></li>
                 </ul>
-                <a href="#contact" class="btn nav-link">Get a FREE Quote</a>
             </nav>
         </div>
     </header>
@@ -779,8 +810,15 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navList = document.querySelector('.nav-list');
             const navLinks = document.querySelectorAll('.nav-link');
             const pageSections = document.querySelectorAll('.page-section');
+
+            // Toggle mobile menu
+            mobileMenu.addEventListener('click', () => {
+                navList.classList.toggle('active');
+            });
 
             function navigateTo(hash) {
                 // If no hash, default to #home
@@ -790,7 +828,7 @@
                 
                 // Deactivate all sections and links
                 pageSections.forEach(section => section.classList.remove('active'));
-                navLinks.forEach(link => link.classList.remove('current'));
+                document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('current'));
 
                 // Activate the target section
                 const targetSection = document.querySelector(hash);
@@ -802,16 +840,17 @@
                     document.querySelector('#home').classList.add('active');
                 }
 
-                // Activate the corresponding nav links
-                document.querySelectorAll(`.nav-link[href="${hash}"]`).forEach(link => {
-                    link.classList.add('current');
-                });
-                 // Special handling for the main nav bar links
-                const mainNavLink = document.querySelector(`#navbar ul a[href="${hash}"]`);
-                if (mainNavLink) {
+                // Activate the corresponding nav link in the main menu
+                const mainNavLink = document.querySelector(`.nav-list a[href="${hash}"]`);
+                 if (mainNavLink) {
                     mainNavLink.classList.add('current');
                 } else {
-                     document.querySelector(`#navbar ul a[href="#home"]`).classList.add('current');
+                     document.querySelector(`.nav-list a[href="#home"]`).classList.add('current');
+                }
+
+                // Close mobile menu after navigation
+                if (navList.classList.contains('active')) {
+                    navList.classList.remove('active');
                 }
             }
 
@@ -821,7 +860,11 @@
                     const hash = this.getAttribute('href');
                     navigateTo(hash);
                     // Update URL hash for history
-                    history.pushState(null, null, hash);
+                    if(history.pushState) {
+                        history.pushState(null, null, hash);
+                    } else {
+                        location.hash = hash;
+                    }
                 });
             });
 
