@@ -3,861 +3,836 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PCB Testing Report</title>
+    <meta name="description" content="Professional line striping, ADA compliance, and pavement sealing services. Get a free quote today!">
+    <title>Pro-Pave Solutions | Line Striping, ADA Compliance & Sealing</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
-        /* Global Styles */
+        /* --- Global Styles & Variables --- */
+        :root {
+            --primary-color: #00529B; /* Professional Blue */
+            --secondary-color: #FFD700; /* Bright Yellow for accents */
+            --dark-color: #222831;
+            --light-color: #ffffff;
+            --gray-color: #f4f4f4;
+            --text-color: #333;
+            --font-family: 'Arial', sans-serif;
+        }
+
+        /* --- Base & Reset --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding: 20px;
-            background-color: #f4f7f9;
-            color: #333;
+            font-family: var(--font-family);
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--light-color);
         }
 
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #2c3e50;
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 2rem;
         }
 
-        /* PCB Section Styles */
-        .pcb-section {
-            background-color: #fff;
-            margin-bottom: 20px;
-            border: 1px solid #e1e4e8;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        h1, h2, h3, h4 {
+            font-family: 'Helvetica Neue', sans-serif;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
         }
 
-        .pcb-section h3 {
-            margin-top: 0;
-            color: #34495e;
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.5rem; }
+        h3 { font-size: 1.8rem; }
+        p { margin-bottom: 1rem; }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
         }
 
-        .inputs-group {
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- Utility Classes --- */
+        .text-center { text-align: center; }
+        .text-primary { color: var(--primary-color); }
+        .py-1 { padding: 1.5rem 0; }
+        .py-2 { padding: 2.5rem 0; }
+        .py-3 { padding: 3.5rem 0; }
+        .bg-light { background-color: var(--gray-color); }
+        .bg-dark { background-color: var(--dark-color); color: var(--light-color); }
+        .bg-primary { background-color: var(--primary-color); color: var(--light-color); }
+        .lead { font-size: 1.2rem; font-weight: 300; }
+
+        /* --- Buttons --- */
+        .btn {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: var(--dark-color);
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn:hover {
+            background: #ffc400;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: var(--light-color);
+        }
+
+        .btn-primary:hover {
+            background: #00417a;
+        }
+
+        /* --- Header & Navigation --- */
+        #main-header {
+            background: var(--light-color);
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+        }
+
+        #navbar {
             display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
             flex-wrap: wrap;
-            gap: 10px;
         }
 
-        .input-field {
-            flex: 1 1 45%;
+        #navbar .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        #navbar ul {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        #navbar ul li a {
+            color: var(--dark-color);
+            padding: 0.5rem 1rem;
+            font-weight: bold;
+            transition: color 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+
+        #navbar ul li a:hover, #navbar ul li a.current {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        /* --- Page Section Control (for SPA) --- */
+        .page-section {
+            display: none;
+        }
+        .page-section.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* --- Hero Section --- */
+        #hero {
+            min-height: 80vh;
+            background: url('https://images.unsplash.com/photo-1599086432436-9623559374aa?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            position: relative;
+            color: var(--light-color);
             display: flex;
             flex-direction: column;
-            margin-bottom: 10px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
         }
 
-        .input-field label {
-            margin-bottom: 5px;
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        #hero * {
+            z-index: 10;
+        }
+
+        #hero h1 {
+            font-size: 3.5rem;
+            color: var(--light-color);
+        }
+
+        #hero p {
+            font-size: 1.5rem;
+            max-width: 700px;
+            margin-bottom: 2rem;
+        }
+
+        /* --- General Section Styling --- */
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .service-card {
+            background: var(--light-color);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+        }
+
+        /* Why Choose Us Section */
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .why-us-item {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .why-us-item i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-right: 1rem;
+            margin-top: 5px;
+        }
+
+        /* --- Service Page Specific --- */
+        .service-header {
+            background: var(--primary-color);
+            color: var(--light-color);
+            text-align: center;
+        }
+
+        .service-header h1, .service-header p {
+            color: var(--light-color);
+        }
+
+        .service-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .service-content ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .service-image {
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        /* --- Gallery Page --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            transition: transform 0.4s;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 82, 155, 0.8);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.4s;
+            font-size: 1.2rem;
             font-weight: bold;
         }
 
-        .input-field input {
-            padding: 8px;
-            border: 1px solid #ccd1d9;
-            border-radius: 4px;
-            font-size: 16px;
+        .gallery-item:hover img {
+            transform: scale(1.1);
         }
 
-        /* Button Styles */
-        #generateReportButton {
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* --- Blog Page --- */
+        .blog-post {
+            background: #fff;
+            border: 1px solid #ddd;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: 5px;
+        }
+
+        .blog-post .meta {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        /* --- Contact Page --- */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .contact-form label {
             display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
             width: 100%;
-            padding: 12px;
-            background-color: #2980b9;
-            color: #fff;
-            border: none;
-            border-radius: 6px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-top: 20px;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        
+        .contact-info p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
         }
 
-        #generateReportButton:hover {
-            background-color: #1c5980;
-        }
-
-        /* Report Table Styles */
-        #reportTable {
-            margin-top: 30px;
-            border-collapse: collapse;
-            width: 100%;
-            background-color: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        #reportTable th, #reportTable td {
-            border: 1px solid #e1e4e8;
-            padding: 12px;
+        /* --- Footer --- */
+        #main-footer {
+            background: var(--dark-color);
+            color: var(--light-color);
             text-align: center;
         }
 
-        #reportTable th {
-            background-color: #2980b9;
-            color: #fff;
-        }
-
-        /* Charts Container */
-        .charts-container {
+        #main-footer .footer-content {
             display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 0;
             flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 30px;
-            justify-content: center;
         }
 
-        .chart-wrapper {
-            background-color: #fff;
-            padding: 15px;
-            border: 1px solid #e1e4e8;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            width: 100%;
-            max-width: 800px;
-            height: 500px; /* Fixed height for better performance */
+        #main-footer ul {
+            display: flex;
         }
 
-        .chart-wrapper h4 {
-            text-align: center;
-            margin-bottom: 15px;
-            color: #34495e;
+        #main-footer ul li a {
+            color: var(--light-color);
+            padding: 0 0.5rem;
         }
 
-        canvas {
-            width: 100% !important;
-            height: 100% !important;
+        /* --- Responsiveness --- */
+        @media (max-width: 992px) {
+            .service-content {
+                grid-template-columns: 1fr;
+            }
+            .service-content .service-image {
+                order: -1; /* Move image to top on smaller screens */
+                margin-bottom: 2rem;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
         }
-
-        /* Responsive Design */
+        
         @media (max-width: 768px) {
-            .input-field {
-                flex: 1 1 100%;
-            }
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
 
-            .charts-container {
+            #navbar {
                 flex-direction: column;
-                align-items: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                padding: 10px;
+                align-items: flex-start;
             }
 
-            h1 {
-                font-size: 24px;
+            #navbar .logo {
+                margin-bottom: 1rem;
             }
 
-            #generateReportButton {
-                font-size: 16px;
-                padding: 10px;
+            #navbar ul {
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+            }
+            #navbar ul li {
+                padding: 0.5rem 0;
+                width: 100%;
+            }
+            #navbar ul li a {
+                display: block;
+                padding-left: 0;
+            }
+            #navbar .btn {
+                margin-top: 1rem;
             }
 
-            .chart-wrapper h4 {
-                font-size: 16px;
+            #hero h1 { font-size: 2.8rem; }
+            #hero p { font-size: 1.2rem; }
+
+            #main-footer .footer-content {
+                flex-direction: column;
+            }
+
+            #main-footer ul {
+                margin-top: 1rem;
             }
         }
     </style>
 </head>
 <body>
-
-    <h1>PCB Testing Report Generator</h1>
-
-    <div>
-        <!-- PCB Sections (QFEM 418x, QFEM 428x, MCU 1503, MCU 1513, EPS, MBF) -->
-        <!-- QFEM 418x -->
-        <div class="pcb-section">
-            <h3>QFEM 418x</h3>
-            <div class="inputs-group">
-                <div class="input-field">
-                    <label for="qfem418_ft_pass">FT Passed:</label>
-                    <input type="number" id="qfem418_ft_pass" placeholder="FT Passed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="qfem418_ft_fail">FT Failed:</label>
-                    <input type="number" id="qfem418_ft_fail" placeholder="FT Failed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="qfem418_burn_pass">Burn-in Passed:</label>
-                    <input type="number" id="qfem418_burn_pass" placeholder="Burn-in Passed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="qfem418_burn_fail">Burn-in Failed:</label>
-                    <input type="number" id="qfem418_burn_fail" placeholder="Burn-in Failed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="qfem418_shaker_pass">Shaker Passed:</label>
-                    <input type="number" id="qfem418_shaker_pass" placeholder="Shaker Passed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="qfem418_shaker_fail">Shaker Failed:</label>
-                    <input type="number" id="qfem418_shaker_fail" placeholder="Shaker Failed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="qfem418_th_pass">TH Passed:</label>
-                    <input type="number" id="qfem418_th_pass" placeholder="TH Passed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="qfem418_th_fail">TH Failed:</label>
-                    <input type="number" id="qfem418_th_fail" placeholder="TH Failed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="qfem418_balancer_pass">Balancer Passed:</label>
-                    <input type="number" id="qfem418_balancer_pass" placeholder="Balancer Passed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="qfem418_balancer_fail">Balancer Failed:</label>
-                    <input type="number" id="qfem418_balancer_fail" placeholder="Balancer Failed" min="0">
-                </div>
-            </div>
+    <header id="main-header">
+        <div class="container">
+            <nav id="navbar">
+                <a href="#home" class="logo nav-link">Pro-Pave</a>
+                <ul>
+                    <li><a href="#home" class="nav-link current">Home</a></li>
+                    <li><a href="#line-striping" class="nav-link">Line Striping</a></li>
+                    <li><a href="#ada-compliance" class="nav-link">ADA Compliance</a></li>
+                    <li><a href="#pavement-sealing" class="nav-link">Pavement Sealing</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#gallery" class="nav-link">Our Work</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <a href="#contact" class="btn nav-link">Get a FREE Quote</a>
+            </nav>
         </div>
+    </header>
 
-        <!-- QFEM 428x -->
-        <div class="pcb-section">
-            <h3>QFEM 428x</h3>
-            <div class="inputs-group">
-                <div class="input-field">
-                    <label for="qfem428_ft_pass">FT Passed:</label>
-                    <input type="number" id="qfem428_ft_pass" placeholder="FT Passed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="qfem428_ft_fail">FT Failed:</label>
-                    <input type="number" id="qfem428_ft_fail" placeholder="FT Failed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="qfem428_burn_pass">Burn-in Passed:</label>
-                    <input type="number" id="qfem428_burn_pass" placeholder="Burn-in Passed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="qfem428_burn_fail">Burn-in Failed:</label>
-                    <input type="number" id="qfem428_burn_fail" placeholder="Burn-in Failed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="qfem428_shaker_pass">Shaker Passed:</label>
-                    <input type="number" id="qfem428_shaker_pass" placeholder="Shaker Passed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="qfem428_shaker_fail">Shaker Failed:</label>
-                    <input type="number" id="qfem428_shaker_fail" placeholder="Shaker Failed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="qfem428_th_pass">TH Passed:</label>
-                    <input type="number" id="qfem428_th_pass" placeholder="TH Passed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="qfem428_th_fail">TH Failed:</label>
-                    <input type="number" id="qfem428_th_fail" placeholder="TH Failed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="qfem428_balancer_pass">Balancer Passed:</label>
-                    <input type="number" id="qfem428_balancer_pass" placeholder="Balancer Passed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="qfem428_balancer_fail">Balancer Failed:</label>
-                    <input type="number" id="qfem428_balancer_fail" placeholder="Balancer Failed" min="0">
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="page-section active">
+            <div id="hero">
+                <div class="hero-content">
+                    <h1>Crisp Lines, Full Compliance, Lasting Protection.</h1>
+                    <p>Your trusted partner for professional line striping, ADA-compliant markings, and durable pavement sealing that enhances your property's safety and curb appeal.</p>
+                    <a href="#contact" class="btn nav-link">Request Your Free Estimate Today</a>
                 </div>
             </div>
+
+            <div id="home-services" class="py-3 bg-light">
+                <div class="container">
+                    <h2 class="section-title">Our Core Services</h2>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <i class="fas fa-road"></i>
+                            <h3>Precision Line Striping</h3>
+                            <p>Ensure safety and a professional look with precise, durable lines for parking lots, roadways, and warehouses.</p>
+                            <a href="#line-striping" class="btn btn-primary nav-link">Learn More</a>
+                        </div>
+                        <div class="service-card">
+                            <i class="fab fa-accessible-icon"></i>
+                            <h3>ADA Compliance</h3>
+                            <p>Avoid fines and ensure accessibility for everyone with our expert ADA-compliant parking lot markings and signage.</p>
+                            <a href="#ada-compliance" class="btn btn-primary nav-link">Learn More</a>
+                        </div>
+                        <div class="service-card">
+                            <i class="fas fa-fill-drip"></i>
+                            <h3>Pavement Sealing</h3>
+                            <p>Protect your asphalt investment from the elements, prevent cracks, and enhance curb appeal with our quality sealcoating.</p>
+                            <a href="#pavement-sealing" class="btn btn-primary nav-link">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="why-us" class="py-3">
+                <div class="container">
+                    <h2 class="section-title">Why Choose Pro-Pave?</h2>
+                    <div class="why-us-grid">
+                        <div class="why-us-item">
+                            <i class="fas fa-hard-hat"></i>
+                            <div><h4>Experienced & Certified</h4><p>Our team has the training and expertise to deliver top-quality results every time.</p></div>
+                        </div>
+                        <div class="why-us-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div><h4>Commitment to Quality</h4><p>We use only the highest-grade, durable materials for a long-lasting, professional finish.</p></div>
+                        </div>
+                        <div class="why-us-item">
+                            <i class="fas fa-handshake"></i>
+                            <div><h4>Reliable & On Time</h4><p>We respect your schedule and work efficiently to minimize disruption to your business.</p></div>
+                        </div>
+                        <div class="why-us-item">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                            <div><h4>Free, No-Obligation Quotes</h4><p>Get a clear, transparent, and competitive estimate for your project with no surprises.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="cta" class="bg-primary py-3 text-center">
+                <div class="container">
+                    <h2 style="color: white;">Ready to Improve Your Property's Safety and Appearance?</h2>
+                    <p class="lead" style="color: white;">Don't wait for faded lines or compliance issues to become a problem. Let's talk today!</p>
+                    <a href="#contact" class="btn nav-link">Get My Free Quote</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Line Striping Section -->
+        <section id="line-striping" class="page-section">
+            <div class="service-header py-3">
+                <div class="container">
+                    <h1>Professional Line Striping Services</h1>
+                    <p class="lead">Creating safe, organized, and professional-looking surfaces with precision and durability.</p>
+                </div>
+            </div>
+            <div class="py-3">
+                <div class="container">
+                    <div class="service-content">
+                        <div class="service-info">
+                            <h2>Crisp, Clean, and Built to Last</h2>
+                            <p>Clear and visible pavement markings are the first step to ensuring safety and efficiency on your property. Whether it's a commercial parking lot, a warehouse floor, or a private roadway, our professional line striping services provide the clarity and organization you need.</p>
+                            <h3>Our Line Striping Services Include:</h3>
+                            <ul>
+                                <li><i class="fas fa-check text-primary"></i> <strong>Parking Lot Striping:</strong> Stalls, directional arrows, loading zones, and fire lanes.</li>
+                                <li><i class="fas fa-check text-primary"></i> <strong>Warehouse Floor Markings:</strong> Safety paths, forklift lanes, and product zones.</li>
+                                <li><i class="fas fa-check text-primary"></i> <strong>Athletic Courts:</strong> Basketball, tennis, and pickleball court lines.</li>
+                                <li><i class="fas fa-check text-primary"></i> <strong>Stenciling:</strong> Custom lettering, numbering, and symbols.</li>
+                                <li><i class="fas fa-check text-primary"></i> <strong>Curb Painting:</strong> Color-coded curbs for fire lanes, loading zones, and no-parking areas.</li>
+                            </ul>
+                            <a href="#contact" class="btn btn-primary nav-link">Request a Quote for Line Striping</a>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1563453392212-9a36371a2e37?q=80&w=1974&auto=format&fit=crop" alt="Professional applying new stripes to a parking lot" class="service-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADA Compliance Section -->
+        <section id="ada-compliance" class="page-section">
+            <div class="service-header py-3">
+                <div class="container">
+                    <h1>Expert ADA Compliance Markings</h1>
+                    <p class="lead">Ensure accessibility and avoid costly fines with our comprehensive ADA solutions.</p>
+                </div>
+            </div>
+            <div class="py-3">
+                <div class="container">
+                    <div class="service-content">
+                        <div class="service-info">
+                            <h2>Navigate ADA Regulations with Confidence</h2>
+                            <p>The Americans with Disabilities Act (ADA) has strict requirements for parking lots to ensure equal access for individuals with disabilities. Navigating these federal, state, and local codes can be complex. We remove the guesswork and guarantee your property is fully compliant.</p>
+                            <h3>Our ADA Compliance Services Ensure:</h3>
+                            <ul>
+                                <li><i class="fas fa-check text-primary"></i> <strong>Correct Number of Accessible Stalls:</strong> Based on your total parking capacity.</li>
+                                <li><i class="fas fa-check text-primary"></i> <strong>Proper Dimensions:</strong> Correct width for parking spaces and access aisles.</li>
+                                <li><i class="fas fa-check text-primary"></i> <strong>Van-Accessible Spaces:</strong> Clearly marked and properly sized.</li>
+                                <li><i class="fas fa-check text-primary"></i> <strong>Correct Signage:</strong> Required signs at the proper height.</li>
+                                <li><i class="fas fa-check text-primary"></i> <strong>Accessible Paths:</strong> Clearly marked paths from accessible parking to the entrance.</li>
+                            </ul>
+                            <a href="#contact" class="btn btn-primary nav-link">Ensure Your Compliance Today</a>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1580554345898-63437145b2b2?q=80&w=1974&auto=format&fit=crop" alt="A clearly marked, ADA compliant handicap parking space with access aisle" class="service-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pavement Sealing Section -->
+        <section id="pavement-sealing" class="page-section">
+            <div class="service-header py-3">
+                <div class="container">
+                    <h1>High-Quality Pavement Sealing</h1>
+                    <p class="lead">Protect your asphalt investment with a rich, black finish that lasts.</p>
+                </div>
+            </div>
+            <div class="py-3">
+                <div class="container">
+                    <div class="service-content">
+                        <div class="service-info">
+                            <h2>Protect, Preserve, and Beautify</h2>
+                            <p>Asphalt is a significant investment. Pavement sealing (or sealcoating) is the most critical maintenance step you can take to protect it. Our commercial-grade sealant forms a tough, protective layer that shields your pavement from its worst enemies: water, oil, gas, and UV rays.</p>
+                            <h3>The Benefits of Pavement Sealing:</h3>
+                            <ul>
+                                <li><i class="fas fa-check text-primary"></i> <strong>Extends Pavement Life:</strong> Prevents oxidation and water penetration, the leading causes of cracks.</li>
+                                <li><i class="fas fa-check text-primary"></i> <strong>Improves Appearance:</strong> Restores the rich, black finish of new asphalt, boosting curb appeal.</li>
+                                <li><i class="fas fa-check text-primary"></i> <strong>Resists Gas & Oil Spills:</strong> Prevents fuel and oil from softening and damaging the asphalt.</li>
+                                <li><i class="fas fa-check text-primary"></i> <strong>Saves You Money:</strong> Proactive sealing costs pennies on the dollar compared to expensive asphalt repairs or replacement.</li>
+                            </ul>
+                            <a href="#contact" class="btn btn-primary nav-link">Get a Quote to Seal Your Pavement</a>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1621361253043-f1c8d523d0a6?q=80&w=1964&auto=format&fit=crop" alt="A freshly sealcoated parking lot with a deep black finish" class="service-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="page-section">
+            <div class="service-header py-3">
+                <div class="container">
+                    <h1>Your Trusted Pavement Partner</h1>
+                    <p class="lead">Combining craftsmanship, quality materials, and a commitment to our clients.</p>
+                </div>
+            </div>
+            <div class="py-3">
+                <div class="container">
+                    <div class="service-content">
+                        <div class="service-info">
+                            <h2>Our Story</h2>
+                            <p>Pro-Pave Solutions was founded with a simple mission: to provide businesses and property managers with reliable, high-quality pavement maintenance services. We saw a need for a company that not only did great work but also communicated clearly, showed up on time, and stood behind its services.</p>
+                            <p>Today, we are proud to be a local leader in line striping, ADA compliance, and pavement sealing. Our success is built on the foundation of satisfied customers who trust us to protect their investment and keep their properties safe and professional.</p>
+                            <h2>Our Mission & Guarantee</h2>
+                            <p>Our mission is to deliver exceptional results and unparalleled customer service on every project. We guarantee to use only high-quality, durable materials, employ skilled professionals, and provide clear, fair, and transparent pricing. Your satisfaction is our top priority.</p>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2132&auto=format&fit=crop" alt="A photo of the Pro-Pave Solutions team" class="service-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="page-section">
+            <div class="service-header py-3">
+                <div class="container">
+                    <h1>Our Work Gallery</h1>
+                    <p class="lead">A picture is worth a thousand words. See the quality and precision we bring to every job.</p>
+                </div>
+            </div>
+            <div class="py-3">
+                <div class="container">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="https://via.placeholder.com/400x300.png?text=Crisp+Parking+Lines" alt="Newly striped parking lot">
+                            <div class="gallery-overlay">Line Striping</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://via.placeholder.com/400x300.png?text=ADA+Handicap+Symbol" alt="ADA handicap symbol painted on asphalt">
+                            <div class="gallery-overlay">ADA Compliance</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://via.placeholder.com/400x300.png?text=Smooth+Sealcoating" alt="Freshly sealcoated parking lot">
+                            <div class="gallery-overlay">Pavement Sealing</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://via.placeholder.com/400x300.png?text=Directional+Arrow" alt="Directional arrow on pavement">
+                            <div class="gallery-overlay">Line Striping</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://via.placeholder.com/400x300.png?text=Fire+Lane+Curb" alt="Red painted fire lane curb">
+                            <div class="gallery-overlay">Curb Painting</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://via.placeholder.com/400x300.png?text=Van+Accessible+Stall" alt="Van accessible ADA stall">
+                            <div class="gallery-overlay">ADA Compliance</div>
+                        </div>
+                         <div class="gallery-item">
+                            <img src="https://via.placeholder.com/400x300.png?text=Before+%26+After+Sealing" alt="Before and after pavement sealing">
+                            <div class="gallery-overlay">Pavement Sealing</div>
+                        </div>
+                         <div class="gallery-item">
+                            <img src="https://via.placeholder.com/400x300.png?text=Warehouse+Markings" alt="Safety lines in a warehouse">
+                            <div class="gallery-overlay">Warehouse Striping</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="page-section">
+            <div class="service-header py-3">
+                <div class="container">
+                    <h1>Get a Free, No-Obligation Quote</h1>
+                    <p class="lead">We're ready to help. Fill out the form below or give us a call!</p>
+                </div>
+            </div>
+            <div class="py-3">
+                <div class="container">
+                    <div class="contact-grid">
+                        <div class="contact-form">
+                            <h3>Send Us a Message</h3>
+                            <form action="#">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone</label>
+                                    <input type="tel" id="phone" name="phone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="service">Service of Interest</label>
+                                    <select id="service" name="service">
+                                        <option value="general">General Inquiry</option>
+                                        <option value="striping">Line Striping</option>
+                                        <option value="ada">ADA Compliance</option>
+                                        <option value="sealing">Pavement Sealing</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Message</label>
+                                    <textarea id="message" name="message" rows="5" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit Request</button>
+                            </form>
+                        </div>
+                        <div class="contact-info">
+                            <h3>Contact Information</h3>
+                            <p><i class="fas fa-map-marker-alt text-primary"></i> 123 Pavement Way, Houston, TX 77001</p>
+                            <p><i class="fas fa-phone text-primary"></i> (555) 123-4567</p>
+                            <p><i class="fas fa-envelope text-primary"></i> quotes@propave-solutions.com</p>
+                            <p><i class="fas fa-clock text-primary"></i> <strong>Business Hours:</strong><br>
+                            Monday - Friday: 8:00 AM - 5:00 PM<br>
+                            Saturday: By Appointment</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="main-footer" class="py-2 bg-dark">
+        <div class="container footer-content">
+            <p>Copyright &copy; 2025, Pro-Pave Solutions</p>
+            <ul>
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
         </div>
+    </footer>
 
-        <!-- MCU 1503 -->
-        <div class="pcb-section">
-            <h3>MCU 1503</h3>
-            <div class="inputs-group">
-                <div class="input-field">
-                    <label for="mcu1503_ft_pass">FT Passed:</label>
-                    <input type="number" id="mcu1503_ft_pass" placeholder="FT Passed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="mcu1503_ft_fail">FT Failed:</label>
-                    <input type="number" id="mcu1503_ft_fail" placeholder="FT Failed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="mcu1503_burn_pass">Burn-in Passed:</label>
-                    <input type="number" id="mcu1503_burn_pass" placeholder="Burn-in Passed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="mcu1503_burn_fail">Burn-in Failed:</label>
-                    <input type="number" id="mcu1503_burn_fail" placeholder="Burn-in Failed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="mcu1503_shaker_pass">Shaker Passed:</label>
-                    <input type="number" id="mcu1503_shaker_pass" placeholder="Shaker Passed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="mcu1503_shaker_fail">Shaker Failed:</label>
-                    <input type="number" id="mcu1503_shaker_fail" placeholder="Shaker Failed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="mcu1503_th_pass">TH Passed:</label>
-                    <input type="number" id="mcu1503_th_pass" placeholder="TH Passed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="mcu1503_th_fail">TH Failed:</label>
-                    <input type="number" id="mcu1503_th_fail" placeholder="TH Failed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="mcu1503_final_flash_pass">Final Flashing Passed:</label>
-                    <input type="number" id="mcu1503_final_flash_pass" placeholder="Final Flashing Passed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="mcu1503_final_flash_fail">Final Flashing Failed:</label>
-                    <input type="number" id="mcu1503_final_flash_fail" placeholder="Final Flashing Failed" min="0">
-                </div>
-            </div>
-        </div>
-
-        <!-- MCU 1513 -->
-        <div class="pcb-section">
-            <h3>MCU 1513</h3>
-            <div class="inputs-group">
-                <div class="input-field">
-                    <label for="mcu1513_ft_pass">FT Passed:</label>
-                    <input type="number" id="mcu1513_ft_pass" placeholder="FT Passed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="mcu1513_ft_fail">FT Failed:</label>
-                    <input type="number" id="mcu1513_ft_fail" placeholder="FT Failed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="mcu1513_burn_pass">Burn-in Passed:</label>
-                    <input type="number" id="mcu1513_burn_pass" placeholder="Burn-in Passed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="mcu1513_burn_fail">Burn-in Failed:</label>
-                    <input type="number" id="mcu1513_burn_fail" placeholder="Burn-in Failed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="mcu1513_shaker_pass">Shaker Passed:</label>
-                    <input type="number" id="mcu1513_shaker_pass" placeholder="Shaker Passed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="mcu1513_shaker_fail">Shaker Failed:</label>
-                    <input type="number" id="mcu1513_shaker_fail" placeholder="Shaker Failed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="mcu1513_th_pass">TH Passed:</label>
-                    <input type="number" id="mcu1513_th_pass" placeholder="TH Passed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="mcu1513_th_fail">TH Failed:</label>
-                    <input type="number" id="mcu1513_th_fail" placeholder="TH Failed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="mcu1513_final_flash_pass">Final Flashing Passed:</label>
-                    <input type="number" id="mcu1513_final_flash_pass" placeholder="Final Flashing Passed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="mcu1513_final_flash_fail">Final Flashing Failed:</label>
-                    <input type="number" id="mcu1513_final_flash_fail" placeholder="Final Flashing Failed" min="0">
-                </div>
-            </div>
-        </div>
-
-        <!-- EPS -->
-        <div class="pcb-section">
-            <h3>EPS</h3>
-            <div class="inputs-group">
-                <div class="input-field">
-                    <label for="eps_ft_pass">FT Passed:</label>
-                    <input type="number" id="eps_ft_pass" placeholder="FT Passed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="eps_ft_fail">FT Failed:</label>
-                    <input type="number" id="eps_ft_fail" placeholder="FT Failed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="eps_burn_pass">Burn-in Passed:</label>
-                    <input type="number" id="eps_burn_pass" placeholder="Burn-in Passed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="eps_burn_fail">Burn-in Failed:</label>
-                    <input type="number" id="eps_burn_fail" placeholder="Burn-in Failed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="eps_shaker_pass">Shaker Passed:</label>
-                    <input type="number" id="eps_shaker_pass" placeholder="Shaker Passed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="eps_shaker_fail">Shaker Failed:</label>
-                    <input type="number" id="eps_shaker_fail" placeholder="Shaker Failed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="eps_th_pass">TH Passed:</label>
-                    <input type="number" id="eps_th_pass" placeholder="TH Passed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="eps_th_fail">TH Failed:</label>
-                    <input type="number" id="eps_th_fail" placeholder="TH Failed" min="0">
-                </div>
-            </div>
-        </div>
-
-        <!-- MBF -->
-        <div class="pcb-section">
-            <h3>MBF</h3>
-            <div class="inputs-group">
-                <div class="input-field">
-                    <label for="mbf_ft_pass">FT Passed:</label>
-                    <input type="number" id="mbf_ft_pass" placeholder="FT Passed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="mbf_ft_fail">FT Failed:</label>
-                    <input type="number" id="mbf_ft_fail" placeholder="FT Failed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="mbf_burn_pass">Burn-in Passed:</label>
-                    <input type="number" id="mbf_burn_pass" placeholder="Burn-in Passed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="mbf_burn_fail">Burn-in Failed:</label>
-                    <input type="number" id="mbf_burn_fail" placeholder="Burn-in Failed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="mbf_shaker_pass">Shaker Passed:</label>
-                    <input type="number" id="mbf_shaker_pass" placeholder="Shaker Passed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="mbf_shaker_fail">Shaker Failed:</label>
-                    <input type="number" id="mbf_shaker_fail" placeholder="Shaker Failed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="mbf_th_pass">TH Passed:</label>
-                    <input type="number" id="mbf_th_pass" placeholder="TH Passed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="mbf_th_fail">TH Failed:</label>
-                    <input type="number" id="mbf_th_fail" placeholder="TH Failed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="mbf_final_flash_pass">Final Flashing Passed:</label>
-                    <input type="number" id="mbf_final_flash_pass" placeholder="Final Flashing Passed" min="0">
-                </div>
-                <div class="input-field">
-                    <label for="mbf_final_flash_fail">Final Flashing Failed:</label>
-                    <input type="number" id="mbf_final_flash_fail" placeholder="Final Flashing Failed" min="0">
-                </div>
-            </div>
-        </div>
-
-        <button id="generateReportButton">Generate Report</button>
-
-        <table id="reportTable">
-            <thead>
-                <tr>
-                    <th>Test Name</th>
-                    <th>Passed</th>
-                    <th>Failed</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
-
-        <div class="charts-container">
-            <!-- Chart Wrappers for Each PCB -->
-            <div class="chart-wrapper">
-                <h4>QFEM 418x Test Summary</h4>
-                <canvas id="qfem418Chart"></canvas>
-            </div>
-            <div class="chart-wrapper">
-                <h4>QFEM 428x Test Summary</h4>
-                <canvas id="qfem428Chart"></canvas>
-            </div>
-            <div class="chart-wrapper">
-                <h4>MCU 1503 Test Summary</h4>
-                <canvas id="mcu1503Chart"></canvas>
-            </div>
-            <div class="chart-wrapper">
-                <h4>MCU 1513 Test Summary</h4>
-                <canvas id="mcu1513Chart"></canvas>
-            </div>
-            <div class="chart-wrapper">
-                <h4>EPS Test Summary</h4>
-                <canvas id="epsChart"></canvas>
-            </div>
-            <div class="chart-wrapper">
-                <h4>MBF Test Summary</h4>
-                <canvas id="mbfChart"></canvas>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- Chart.js Library -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Chart.js Data Labels Plugin -->
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
     <script>
-        // Register the Data Labels plugin with Chart.js
-        Chart.register(ChartDataLabels);
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pageSections = document.querySelectorAll('.page-section');
 
-        // Initialize Chart Instances Object
-        const chartInstances = {};
-
-        // Function to destroy existing charts
-        function destroyCharts() {
-            const chartIds = ['qfem418Chart', 'qfem428Chart', 'mcu1503Chart', 'mcu1513Chart', 'epsChart', 'mbfChart'];
-            chartIds.forEach(chartId => {
-                if (chartInstances[chartId]) {
-                    chartInstances[chartId].destroy();
-                    delete chartInstances[chartId];
+            function navigateTo(hash) {
+                // If no hash, default to #home
+                if (!hash) {
+                    hash = '#home';
                 }
-            });
-        }
+                
+                // Deactivate all sections and links
+                pageSections.forEach(section => section.classList.remove('active'));
+                navLinks.forEach(link => link.classList.remove('current'));
 
-        // Function to generate grouped bar charts for each PCB
-        function generateGroupedBarChart(pcbId, pcbName, testData) {
-            const ctx = document.getElementById(pcbId).getContext('2d');
-
-            chartInstances[pcbId] = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: Object.keys(testData), // Test Types (FT, Burn-in, Shaker, etc.)
-                    datasets: [
-                        {
-                            label: 'Passed',
-                            data: Object.values(testData).map(test => test.passed),
-                            backgroundColor: '#2ecc71'
-                        },
-                        {
-                            label: 'Failed',
-                            data: Object.values(testData).map(test => test.failed),
-                            backgroundColor: '#e74c3c'
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'top',
-                            labels: {
-                                font: {
-                                    size: 14
-                                }
-                            }
-                        },
-                        datalabels: {
-                            anchor: 'end',
-                            align: 'start',
-                            color: '#34495e',
-                            formatter: (value, context) => {
-                                return value;
-                            },
-                            font: {
-                                weight: 'bold',
-                                size: 14
-                            }
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    let label = context.dataset.label || '';
-                                    if (label) {
-                                        label += ': ';
-                                    }
-                                    if (context.parsed.y !== null) {
-                                        label += context.parsed.y;
-                                    }
-                                    return label;
-                                }
-                            }
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            ticks: {
-                                stepSize: 1
-                            },
-                            title: {
-                                display: true,
-                                text: 'Number of Tests',
-                                font: {
-                                    size: 16,
-                                    weight: 'bold'
-                                }
-                            }
-                        },
-                        x: {
-                            title: {
-                                display: true,
-                                text: 'Test Types',
-                                font: {
-                                    size: 16,
-                                    weight: 'bold'
-                                }
-                            }
-                        }
-                    }
-                },
-                plugins: [ChartDataLabels]
-            });
-        }
-
-        document.getElementById('generateReportButton').addEventListener('click', function() {
-            const reportTable = document.getElementById('reportTable').getElementsByTagName('tbody')[0];
-            reportTable.innerHTML = ''; // Clear existing table rows
-
-            const allData = {
-                'QFEM 418x': {
-                    FT: { passed: 0, failed: 0 },
-                    'Burn-in': { passed: 0, failed: 0 },
-                    Shaker: { passed: 0, failed: 0 },
-                    TH: { passed: 0, failed: 0 },
-                    Balancer: { passed: 0, failed: 0 }
-                },
-                'QFEM 428x': {
-                    FT: { passed: 0, failed: 0 },
-                    'Burn-in': { passed: 0, failed: 0 },
-                    Shaker: { passed: 0, failed: 0 },
-                    TH: { passed: 0, failed: 0 },
-                    Balancer: { passed: 0, failed: 0 }
-                },
-                'MCU 1503': {
-                    FT: { passed: 0, failed: 0 },
-                    'Burn-in': { passed: 0, failed: 0 },
-                    Shaker: { passed: 0, failed: 0 },
-                    TH: { passed: 0, failed: 0 },
-                    'Final Flashing': { passed: 0, failed: 0 }
-                },
-                'MCU 1513': {
-                    FT: { passed: 0, failed: 0 },
-                    'Burn-in': { passed: 0, failed: 0 },
-                    Shaker: { passed: 0, failed: 0 },
-                    TH: { passed: 0, failed: 0 },
-                    'Final Flashing': { passed: 0, failed: 0 }
-                },
-                'EPS': {
-                    FT: { passed: 0, failed: 0 },
-                    'Burn-in': { passed: 0, failed: 0 },
-                    Shaker: { passed: 0, failed: 0 },
-                    TH: { passed: 0, failed: 0 }
-                },
-                'MBF': {
-                    FT: { passed: 0, failed: 0 },
-                    'Burn-in': { passed: 0, failed: 0 },
-                    Shaker: { passed: 0, failed: 0 },
-                    TH: { passed: 0, failed: 0 },
-                    'Final Flashing': { passed: 0, failed: 0 }
-                }
-            };
-
-            const sections = ['QFEM 418x', 'QFEM 428x', 'MCU 1503', 'MCU 1513', 'EPS', 'MBF'];
-
-            sections.forEach(section => {
-                // Generate the correct ID prefix by removing spaces and 'x'
-                let idPrefix = section.toLowerCase().replace(/ /g, '').replace(/x/g, '');
-
-                // Retrieve input values
-                const ftPassed = parseInt(document.getElementById(`${idPrefix}_ft_pass`).value) || 0;
-                const ftFailed = parseInt(document.getElementById(`${idPrefix}_ft_fail`).value) || 0;
-                const burnPassed = parseInt(document.getElementById(`${idPrefix}_burn_pass`).value) || 0;
-                const burnFailed = parseInt(document.getElementById(`${idPrefix}_burn_fail`).value) || 0;
-                const shakerPassed = parseInt(document.getElementById(`${idPrefix}_shaker_pass`).value) || 0;
-                const shakerFailed = parseInt(document.getElementById(`${idPrefix}_shaker_fail`).value) || 0;
-                const thPassed = parseInt(document.getElementById(`${idPrefix}_th_pass`).value) || 0;
-                const thFailed = parseInt(document.getElementById(`${idPrefix}_th_fail`).value) || 0;
-                let balancerPassed = 0;
-                let balancerFailed = 0;
-                let finalFlashPassed = 0;
-                let finalFlashFailed = 0;
-
-                if (section.startsWith('QFEM')) {
-                    balancerPassed = parseInt(document.getElementById(`${idPrefix}_balancer_pass`).value) || 0;
-                    balancerFailed = parseInt(document.getElementById(`${idPrefix}_balancer_fail`).value) || 0;
+                // Activate the target section
+                const targetSection = document.querySelector(hash);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                    window.scrollTo(0, 0); // Scroll to top
+                } else {
+                    // Fallback to home if hash is invalid
+                    document.querySelector('#home').classList.add('active');
                 }
 
-                if (section.startsWith('MCU') || section === 'MBF') {
-                    finalFlashPassed = parseInt(document.getElementById(`${idPrefix}_final_flash_pass`).value) || 0;
-                    finalFlashFailed = parseInt(document.getElementById(`${idPrefix}_final_flash_fail`).value) || 0;
+                // Activate the corresponding nav links
+                document.querySelectorAll(`.nav-link[href="${hash}"]`).forEach(link => {
+                    link.classList.add('current');
+                });
+                 // Special handling for the main nav bar links
+                const mainNavLink = document.querySelector(`#navbar ul a[href="${hash}"]`);
+                if (mainNavLink) {
+                    mainNavLink.classList.add('current');
+                } else {
+                     document.querySelector(`#navbar ul a[href="#home"]`).classList.add('current');
                 }
-
-                // Populate allData object
-                if (section === 'MBF') {
-                    allData[section]['Final Flashing'] = { passed: finalFlashPassed, failed: finalFlashFailed };
-                } else if (section === 'MCU 1503' || section === 'MCU 1513') {
-                    allData[section]['Final Flashing'] = { passed: finalFlashPassed, failed: finalFlashFailed };
-                }
-
-                allData[section].FT.passed += ftPassed;
-                allData[section].FT.failed += ftFailed;
-                allData[section]['Burn-in'].passed += burnPassed;
-                allData[section]['Burn-in'].failed += burnFailed;
-                allData[section].Shaker.passed += shakerPassed;
-                allData[section].Shaker.failed += shakerFailed;
-                allData[section].TH.passed += thPassed;
-                allData[section].TH.failed += thFailed;
-
-                if (section.startsWith('QFEM')) {
-                    allData[section].Balancer.passed += balancerPassed;
-                    allData[section].Balancer.failed += balancerFailed;
-                }
-
-                // Add rows to report table
-                reportTable.innerHTML += `
-                    <tr>
-                        <td>${section} - FT</td>
-                        <td>${ftPassed}</td>
-                        <td>${ftFailed}</td>
-                    </tr>
-                    <tr>
-                        <td>${section} - Burn-in</td>
-                        <td>${burnPassed}</td>
-                        <td>${burnFailed}</td>
-                    </tr>
-                    <tr>
-                        <td>${section} - Shaker</td>
-                        <td>${shakerPassed}</td>
-                        <td>${shakerFailed}</td>
-                    </tr>
-                    <tr>
-                        <td>${section} - TH</td>
-                        <td>${thPassed}</td>
-                        <td>${thFailed}</td>
-                    </tr>
-                `;
-
-                if (section.startsWith('QFEM')) {
-                    reportTable.innerHTML += `
-                        <tr>
-                            <td>${section} - Balancer</td>
-                            <td>${balancerPassed}</td>
-                            <td>${balancerFailed}</td>
-                        </tr>
-                    `;
-                }
-
-                if (section === 'MCU 1503' || section === 'MCU 1513' || section === 'MBF') {
-                    reportTable.innerHTML += `
-                        <tr>
-                            <td>${section} - Final Flashing</td>
-                            <td>${finalFlashPassed}</td>
-                            <td>${finalFlashFailed}</td>
-                        </tr>
-                    `;
-                }
-            });
-
-            // Destroy existing charts to prevent memory leaks and performance issues
-            destroyCharts();
-
-            // Generate Grouped Bar Charts for Each PCB
-            const chartDataMap = {
-                'QFEM 418x': allData['QFEM 418x'],
-                'QFEM 428x': allData['QFEM 428x'],
-                'MCU 1503': allData['MCU 1503'],
-                'MCU 1513': allData['MCU 1513'],
-                'EPS': allData['EPS'],
-                'MBF': allData['MBF']
-            };
-
-            for (const [pcbName, testData] of Object.entries(chartDataMap)) {
-                const pcbId = pcbName.toLowerCase().replace(/ /g, '').replace(/x/g, '').replace(/3/g, '3').replace(/1/g, '1').replace(/b/g, 'b').replace(/f/g, 'f');
-                generateGroupedBarChart(`${pcbId}Chart`, pcbName, testData);
             }
-        });
 
-        // Function to generate grouped bar chart for a specific PCB
-        function generateGroupedBarChart(pcbId, pcbName, testData) {
-            const ctx = document.getElementById(pcbId).getContext('2d');
-
-            // Extract test types and corresponding data
-            const testTypes = Object.keys(testData);
-            const passedData = testTypes.map(test => testData[test].passed);
-            const failedData = testTypes.map(test => testData[test].failed);
-
-            chartInstances[pcbId] = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: testTypes,
-                    datasets: [
-                        {
-                            label: 'Passed',
-                            data: passedData,
-                            backgroundColor: '#2ecc71'
-                        },
-                        {
-                            label: 'Failed',
-                            data: failedData,
-                            backgroundColor: '#e74c3c'
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'top',
-                            labels: {
-                                font: {
-                                    size: 14
-                                }
-                            }
-                        },
-                        datalabels: {
-                            anchor: 'end',
-                            align: 'start',
-                            color: '#34495e',
-                            formatter: (value, context) => {
-                                return value;
-                            },
-                            font: {
-                                weight: 'bold',
-                                size: 14
-                            }
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    let label = context.dataset.label || '';
-                                    if (label) {
-                                        label += ': ';
-                                    }
-                                    if (context.parsed.y !== null) {
-                                        label += context.parsed.y;
-                                    }
-                                    return label;
-                                }
-                            }
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            ticks: {
-                                stepSize: 1
-                            },
-                            title: {
-                                display: true,
-                                text: 'Number of Tests',
-                                font: {
-                                    size: 16,
-                                    weight: 'bold'
-                                }
-                            }
-                        },
-                        x: {
-                            title: {
-                                display: true,
-                                text: 'Test Types',
-                                font: {
-                                    size: 16,
-                                    weight: 'bold'
-                                }
-                            }
-                        }
-                    }
-                },
-                plugins: [ChartDataLabels]
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const hash = this.getAttribute('href');
+                    navigateTo(hash);
+                    // Update URL hash for history
+                    history.pushState(null, null, hash);
+                });
             });
-        }
+
+            // Handle browser back/forward buttons
+            window.addEventListener('popstate', function() {
+                navigateTo(window.location.hash);
+            });
+
+            // Initial page load
+            navigateTo(window.location.hash || '#home');
+        });
     </script>
 </body>
 </html>
