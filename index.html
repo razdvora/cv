@@ -78,7 +78,7 @@
             <div class="container mx-auto px-4">
                 <div class="flex items-center justify-between h-16">
                     <div class="flex items-center space-x-3">
-                        <img class="h-12 w-auto" src="images/icon.png" alt="Right Choice Striping Logo">
+                        <img class="h-12 w-auto" src="images/ICON.PNG" alt="Right Choice Striping Logo">
                     </div>
                     <nav class="hidden md:flex space-x-8">
                         <a href="#home" class="text-foreground hover:text-primary transition-colors font-medium">Home</a>
@@ -94,12 +94,24 @@
                         </a>
                         <a href="#quote-form" class="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg font-semibold h-11 rounded-md px-8 inline-flex items-center justify-center">GET A FREE QUOTE</a>
                     </div>
-                    <button class="md:hidden text-foreground hover:text-primary">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+                    <button id="hamburger-button" class="md:hidden text-foreground hover:text-primary">
+                        <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+                        <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 hidden"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                     </button>
                 </div>
             </div>
         </header>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden fixed inset-0 bg-background z-40 p-8">
+            <nav class="flex flex-col space-y-8 mt-16 text-center">
+                <a href="#home" class="text-2xl text-foreground hover:text-primary transition-colors font-medium">Home</a>
+                <a href="#about" class="text-2xl text-foreground hover:text-primary transition-colors font-medium">About</a>
+                <a href="#services" class="text-2xl text-foreground hover:text-primary transition-colors font-medium">Services</a>
+                <a href="#gallery" class="text-2xl text-foreground hover:text-primary transition-colors font-medium">Gallery</a>
+                <a href="#contact" class="text-2xl text-foreground hover:text-primary transition-colors font-medium">Contact</a>
+            </nav>
+        </div>
 
         <main>
             <section id="home" class="min-h-screen bg-hero-bg relative overflow-hidden" style="background-image: linear-gradient(rgba(34, 37, 49, 0.6), rgba(34, 37, 49, 0.6)), url('https://images.unsplash.com/photo-1533613220915-609f661a2fe1?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
@@ -323,7 +335,7 @@
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div class="space-y-6">
                         <div class="flex items-center space-x-3">
-                            <img class="h-12 w-auto" src="images/icon.png" alt="Right Choice Striping Logo">
+                            <img class="h-12 w-auto" src="images/ICON.PNG" alt="Right Choice Striping Logo">
                         </div>
                         <p class="text-hero-text/80 leading-relaxed">Professional parking lot striping and pavement marking services with quality, reliability, and precision.</p>
                         <a href="#quote-form" class="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold h-11 rounded-md px-8 inline-flex items-center justify-center">Get Free Quote</a>
@@ -383,5 +395,28 @@
             </div>
         </footer>
     </div>
+    <script>
+        const hamburgerButton = document.getElementById('hamburger-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('hidden');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        }
+
+        hamburgerButton.addEventListener('click', toggleMenu);
+
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (!mobileMenu.classList.contains('hidden')) {
+                    toggleMenu();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
