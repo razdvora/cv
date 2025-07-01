@@ -1,29 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<!-- saved from url=(0053)https://preview-%2Dlone-star-travel-site.lovable.app/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional line striping, ADA compliance, and pavement sealing services from Right Choice Striping. Get a free quote today!">
-    <title>Right Choice Striping | Line Striping, ADA Compliance & Sealing</title>
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-        /* --- Global Styles & Variables --- */
-        :root {
-            --primary-color: #00529B; /* Professional Blue */
-            --secondary-color: #FFD700; /* Bright Yellow for accents */
-            --dark-color: #222831;
-            --light-color: #ffffff;
-            --gray-color: #f4f4f4;
-            --text-color: #333;
-            --font-family: 'Arial', sans-serif;
-        }
+    <title>lone-star-travel-site</title>
+    <meta name="description" content="Lovable Generated Project">
+    <meta name="author" content="Lovable">
 
-        /* --- Base & Reset --- */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+    <meta property="og:title" content="lone-star-travel-site">
+    <meta property="og:description" content="Lovable Generated Project">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/70849a7b-6e5d-4f16-a834-59eb4bcf709c/id-preview-4055e3d6--1e555e29-41bc-4b2c-b3e9-c981e086bcb1.lovable.app-1751386067882.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@lovable_dev">
+    <meta name="twitter:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/70849a7b-6e5d-4f16-a834-59eb4bcf709c/id-preview-4055e3d6--1e555e29-41bc-4b2c-b3e9-c981e086bcb1.lovable.app-1751386067882.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background: 0 0% 100%;
+            --foreground: 222.2 84% 4.9%;
+            --card: 0 0% 100%;
+            --card-foreground: 222.2 84% 4.9%;
+            --popover: 0 0% 100%;
+            --popover-foreground: 222.2 84% 4.9%;
+            --primary: 222.2 47.4% 11.2%;
+            --primary-foreground: 210 40% 98%;
+            --secondary: 210 40% 96.1%;
+            --secondary-foreground: 222.2 47.4% 11.2%;
+            --muted: 210 40% 96.1%;
+            --muted-foreground: 215.4 16.3% 46.9%;
+            --accent: 47.9 95.8% 53.1%;
+            --accent-foreground: 222.2 47.4% 11.2%;
+            --destructive: 0 84.2% 60.2%;
+            --destructive-foreground: 210 40% 98%;
+            --border: 214.3 31.8% 91.4%;
+            --input: 214.3 31.8% 91.4%;
+            --ring: 222.2 84% 4.9%;
+            --radius: 0.5rem;
+            --hero-bg: #222531;
+            --hero-text: #ffffff;
         }
 
         html {
@@ -31,968 +48,314 @@
         }
 
         body {
-            font-family: var(--font-family);
-            line-height: 1.7;
-            color: var(--text-color);
-            background-color: var(--light-color);
+            background-color: hsl(var(--background));
+            color: hsl(var(--foreground));
+            font-family: 'Roboto', sans-serif;
         }
-
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            overflow: hidden;
-            padding: 0 2rem;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Helvetica Neue', sans-serif;
-            color: var(--dark-color);
-            margin-bottom: 1rem;
-        }
-
-        h1 { font-size: 3rem; }
-        h2 { font-size: 2.5rem; }
-        h3 { font-size: 1.8rem; }
-        p { margin-bottom: 1rem; }
-
-        a {
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        /* --- Utility Classes --- */
-        .text-center { text-align: center; }
-        .text-primary { color: var(--primary-color); }
-        .py-1 { padding: 1.5rem 0; }
-        .py-2 { padding: 2.5rem 0; }
-        .py-3 { padding: 3.5rem 0; }
-        .bg-light { background-color: var(--gray-color); }
-        .bg-dark { background-color: var(--dark-color); color: var(--light-color); }
-        .bg-primary { background-color: var(--primary-color); color: var(--light-color); }
-        .lead { font-size: 1.2rem; font-weight: 300; }
-
-        /* --- Buttons --- */
-        .btn {
-            display: inline-block;
-            background: var(--secondary-color);
-            color: var(--dark-color);
-            padding: 0.8rem 2rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1.1rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            transition: all 0.3s ease-in-out;
-        }
-
-        .btn:hover {
-            background: #ffc400;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-
-        .btn-primary {
-            background: var(--primary-color);
-            color: var(--light-color);
-        }
-
-        .btn-primary:hover {
-            background: #00417a;
-        }
-
-        /* --- Header & Navigation --- */
-        #main-header {
-            background: var(--light-color);
-            border-bottom: 1px solid #ddd;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            width: 100%;
-        }
-
-        #navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-            flex-wrap: wrap;
-        }
-
-        #navbar .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        #navbar ul {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        #navbar ul li a {
-            color: var(--dark-color);
-            padding: 0.5rem 1rem;
-            font-weight: bold;
-            transition: color 0.3s;
-            border-bottom: 2px solid transparent;
-        }
-
-        #navbar ul li a:hover, #navbar ul li a.current {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--primary-color);
-        }
-        
-        /* --- Page Section Control (for SPA) --- */
-        .page-section {
-            display: none;
-        }
-        .page-section.active {
-            display: block;
-            animation: fadeIn 0.5s;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* --- Hero Section --- */
-        #hero {
-            min-height: 80vh;
-            background: url('https://images.unsplash.com/photo-1599086432436-9623559374aa?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
-            position: relative;
-            color: var(--light-color);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        #hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-        }
-
-        #hero * {
-            z-index: 10;
-        }
-
-        #hero h1 {
-            font-size: 3.5rem;
-            color: var(--light-color);
-        }
-
-        #hero p {
-            font-size: 1.5rem;
-            max-width: 700px;
-            margin-bottom: 2rem;
-        }
-
-        /* --- General Section Styling --- */
-        .section-title {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        /* Services Section */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .service-card {
-            background: var(--light-color);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-        }
-
-        .service-card i {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-        }
-
-        /* Why Choose Us Section */
-        .why-us-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .why-us-item {
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .why-us-item i {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-right: 1rem;
-            margin-top: 5px;
-        }
-
-        /* --- Service Page Specific --- */
-        .service-header {
-            background: var(--primary-color);
-            color: var(--light-color);
-            text-align: center;
-        }
-
-        .service-header h1, .service-header p {
-            color: var(--light-color);
-        }
-
-        .service-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .service-content ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        .service-image {
-            border-radius: 8px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-        }
-
-        /* --- Gallery Page --- */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1rem;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            cursor: pointer;
-            aspect-ratio: 4 / 3;
-        }
-
-        .gallery-item img {
-            transition: transform 0.4s;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 82, 155, 0.8);
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.4s;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-
-        /* --- Blog Page --- */
-        .blog-post {
-            background: #fff;
-            border: 1px solid #ddd;
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            border-radius: 5px;
-        }
-
-        .blog-post .meta {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 1rem;
-        }
-
-        .article-content {
-            max-width: 800px;
-            margin: auto;
-        }
-        
-        .article-content h2 {
-            margin-bottom: 2rem;
-        }
-
-        .article-content p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        /* --- Contact Page --- */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .contact-form .form-group {
-            margin-bottom: 1rem;
-        }
-
-        .contact-form label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-        }
-
-        .contact-form input,
-        .contact-form textarea,
-        .contact-form select {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-family: inherit;
-            font-size: 1rem;
-        }
-        
-        .contact-info p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        /* --- Footer --- */
-        #main-footer {
-            background: var(--dark-color);
-            color: var(--light-color);
-            text-align: center;
-        }
-
-        #main-footer .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 2rem 0;
-            flex-wrap: wrap;
-        }
-
-        #main-footer ul {
-            display: flex;
-        }
-
-        #main-footer ul li a {
-            color: var(--light-color);
-            padding: 0 0.5rem;
-        }
-        
-        /* --- Hamburger Menu for Mobile --- */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-        .menu-toggle .bar {
-            height: 3px;
-            width: 25px;
-            background-color: var(--dark-color);
-            margin: 4px 0;
-            transition: 0.4s;
-        }
-
-
-        /* --- Responsiveness --- */
-        @media (max-width: 992px) {
-            .service-content {
-                grid-template-columns: 1fr;
-            }
-            .service-content .service-image {
-                order: -1; /* Move image to top on smaller screens */
-                margin-bottom: 2rem;
-            }
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            #navbar ul {
-                display: none; /* Hide nav links by default on tablet/mobile */
-                flex-direction: column;
-                width: 100%;
-                text-align: center;
-                background-color: var(--light-color);
-                position: absolute;
-                top: 100%;
-                left: 0;
-                border-bottom: 1px solid #ddd;
-            }
-            #navbar ul.active {
-                display: flex; /* Show when active */
-            }
-            #navbar ul li {
-                width: 100%;
-            }
-            #navbar ul li a {
-                padding: 1rem;
-                display: block;
-                border-bottom: 1px solid #eee;
-            }
-            #navbar .btn {
-                display: none; /* Hide button in nav bar, handled by menu */
-            }
-            .menu-toggle {
-                display: flex; /* Show hamburger icon */
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 1rem;
-            }
-            h1 { font-size: 2.2rem; }
-            h2 { font-size: 1.8rem; }
-            h3 { font-size: 1.5rem; }
-
-            #hero h1 { font-size: 2.5rem; }
-            #hero p { font-size: 1.1rem; }
-
-            #main-footer .footer-content {
-                flex-direction: column;
-            }
-
-            #main-footer ul {
-                margin-top: 1rem;
-                margin-bottom: 1rem;
-            }
-        }
+        .bg-background { background-color: hsl(var(--background)); }
+        .bg-foreground { background-color: hsl(var(--foreground)); }
+        .text-foreground { color: hsl(var(--foreground)); }
+        .text-primary { color: hsl(var(--primary)); }
+        .bg-primary { background-color: hsl(var(--primary)); }
+        .text-primary-foreground { color: hsl(var(--primary-foreground)); }
+        .border-border { border-color: hsl(var(--border)); }
+        .bg-card { background-color: hsl(var(--card)); }
+        .text-card-foreground { color: hsl(var(--card-foreground)); }
+        .text-muted-foreground { color: hsl(var(--muted-foreground)); }
+        .bg-muted\/30 { background-color: rgba(241, 245, 249, 1); } 
+        .text-accent { color: hsl(var(--accent)); }
+        .bg-accent { background-color: hsl(var(--accent)); }
+        .text-accent-foreground { color: hsl(var(--accent-foreground)); }
+        .border-accent\/20 { border-color: rgba(234, 179, 8, 0.2); }
+        .bg-hero-bg { background-color: var(--hero-bg); }
+        .text-hero-text { color: var(--hero-text); }
+        .border-hero-text\/20 { border-color: rgba(255, 255, 255, 0.2); }
     </style>
 </head>
-<body>
-    <header id="main-header">
-        <div class="container">
-            <nav id="navbar">
-                <a href="#home" class="logo nav-link">Right Choice Striping</a>
-                <div class="menu-toggle" id="mobile-menu">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-                <ul class="nav-list">
-                    <li><a href="#home" class="nav-link current">Home</a></li>
-                    <li><a href="#line-striping" class="nav-link">Line Striping</a></li>
-                    <li><a href="#ada-compliance" class="nav-link">ADA Compliance</a></li>
-                    <li><a href="#pavement-sealing" class="nav-link">Pavement Sealing</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#gallery" class="nav-link">Our Work</a></li>
-                    <li><a href="#blog" class="nav-link">Blog</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                    <li><a href="#contact" class="btn nav-link" style="margin-top: 1rem; display: inline-block;">Get a FREE Quote</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <main>
-        <!-- Home Section -->
-        <section id="home" class="page-section active">
-            <div id="hero">
-                <div class="hero-content">
-                    <h1>Crisp Lines, Full Compliance, Lasting Protection.</h1>
-                    <p>Your trusted partner for professional line striping, ADA-compliant markings, and durable pavement sealing that enhances your property's safety and curb appeal.</p>
-                    <a href="#contact" class="btn nav-link">Request Your Free Estimate Today</a>
+  <body class="bg-background text-foreground">
+    <div class="min-h-screen">
+        <header class="bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-50">
+            <div class="container mx-auto px-4">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex items-center space-x-3">
+                        <img class="h-10 w-10" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGNpcmNsZSBjeD0iMTI4IiBjeT0iMTI4IiByPSIxMjAiIGZpbGw9IiMxRTQwQUYiLz4KICA8cmVjdCB4PSI0MCIgeT0iMTE1IiB3aWR0aD0iMTc2IiBoZWlnaHQ9IjgiIGZpbGw9IiNFQUIzMDgiLz4KICA8cmVjdCB4PSI0MCIgeT0iMTMzIiB3aWR0aD0iMTc2IiBoZWlnaHQ9IjgiIGZpbGw9IiNFQUIzMDgiLz4KICA8cG9seWdvbiBwb2ludHM9IjEyOCw2MCAxNjgsMTAwIDEyOCwxMDAiIGZpbGw9IiNFQUIzMDgiLz4KICA8dGV4dCB4PSIxMjgiIHk9IjE5MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iI0VBQjMwOCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+VEVYQVM8L3RleHQ+Cjwvc3ZnPg==" alt="Logo">
+                        <div class="text-lg font-bold text-primary">Right Choice Striping</div>
+                    </div>
+                    <nav class="hidden md:flex space-x-8">
+                        <a href="#home" class="text-foreground hover:text-primary transition-colors font-medium">Home</a>
+                        <a href="#about" class="text-foreground hover:text-primary transition-colors font-medium">About</a>
+                        <a href="#services" class="text-foreground hover:text-primary transition-colors font-medium">Services</a>
+                        <a href="#gallery" class="text-foreground hover:text-primary transition-colors font-medium">Gallery</a>
+                        <a href="#contact" class="text-foreground hover:text-primary transition-colors font-medium">Contact</a>
+                    </nav>
+                    <div class="hidden md:flex items-center space-x-4">
+                        <a href="tel:832-509-7785" class="flex items-center space-x-2 text-primary hover:text-primary/80 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            <span class="font-semibold">832-509-7785</span>
+                        </a>
+                        <a href="#quote-form" class="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg font-semibold h-11 rounded-md px-8 inline-flex items-center justify-center">GET A FREE QUOTE</a>
+                    </div>
+                    <button class="md:hidden text-foreground hover:text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+                    </button>
                 </div>
             </div>
+        </header>
 
-            <div id="home-services" class="py-3 bg-light">
-                <div class="container">
-                    <h2 class="section-title">Our Core Services</h2>
-                    <div class="services-grid">
-                        <div class="service-card">
-                            <i class="fas fa-road"></i>
-                            <h3>Precision Line Striping</h3>
-                            <p>Ensure safety and a professional look with precise, durable lines for parking lots, roadways, and warehouses.</p>
-                            <a href="#line-striping" class="btn btn-primary nav-link">Learn More</a>
+        <main>
+            <section id="home" class="min-h-screen bg-hero-bg relative overflow-hidden" style="background-image: linear-gradient(rgba(34, 37, 49, 0.6), rgba(34, 37, 49, 0.6)), url('https://images.unsplash.com/photo-1533613220915-609f661a2fe1?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
+                <div class="container mx-auto px-4 py-20">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div class="space-y-8">
+                            <div class="space-y-2">
+                                <p class="text-accent font-semibold uppercase tracking-wide text-sm">Striping Solutions</p>
+                                <h1 class="text-4xl lg:text-5xl font-bold text-hero-text leading-tight">
+                                    PROFESSIONAL<br>PARKING LOT<br><span class="text-accent">STRIPING SERVICES</span>
+                                </h1>
+                            </div>
+                            <p class="text-gray-200 text-xl font-light leading-relaxed max-w-lg">Right Choice Striping provides professional parking lot striping that keeps your property safe, compliant, and looking sharp. Reliable service and crisp, long-lasting results.</p>
+                            <div class="space-y-4">
+                                <p class="text-accent font-semibold uppercase tracking-wide text-sm">Give us a call</p>
+                                <a href="tel:832-509-7785" class="flex items-center space-x-3 text-3xl font-bold text-hero-text hover:text-accent transition-colors group">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-accent group-hover:scale-110 transition-transform"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                    <span>832-509-7785</span>
+                                </a>
+                            </div>
                         </div>
-                        <div class="service-card">
-                            <i class="fab fa-accessible-icon"></i>
-                            <h3>ADA Compliance</h3>
-                            <p>Avoid fines and ensure accessibility for everyone with our expert ADA-compliant parking lot markings and signage.</p>
-                            <a href="#ada-compliance" class="btn btn-primary nav-link">Learn More</a>
-                        </div>
-                        <div class="service-card">
-                            <i class="fas fa-fill-drip"></i>
-                            <h3>Pavement Sealing</h3>
-                            <p>Protect your asphalt investment from the elements, prevent cracks, and enhance curb appeal with our quality sealcoating.</p>
-                            <a href="#pavement-sealing" class="btn btn-primary nav-link">Learn More</a>
+                        <div class="lg:pl-8">
+                            <div class="rounded-lg border bg-card text-card-foreground bg-gradient-to-br from-background/95 to-background/90 backdrop-blur-sm shadow-2xl border-accent/20">
+                                <div class="p-8">
+                                    <div class="text-center mb-6">
+                                        <h2 class="text-2xl font-bold text-foreground mb-2">REQUEST A FREE QUOTE</h2>
+                                        <p class="text-muted-foreground text-sm">Get your professional striping estimate today</p>
+                                    </div>
+                                    <form id="quote-form" class="space-y-6">
+                                        <div class="space-y-2">
+                                            <label class="text-sm font-medium leading-none" for="businessName">Business Name *</label>
+                                            <input class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base" id="businessName" required="">
+                                        </div>
+                                        <div class="space-y-4">
+                                            <label class="text-sm font-medium leading-none">Business Address *</label>
+                                            <input class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base" id="address1" placeholder="Address Line 1" required="">
+                                            <div class="grid grid-cols-2 gap-4">
+                                                <input class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base" id="city" placeholder="City" required="">
+                                                <input class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base" id="state" placeholder="State" required="">
+                                            </div>
+                                            <input class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base" id="zip" placeholder="Zip Code">
+                                        </div>
+                                        <div class="space-y-2">
+                                            <label class="text-sm font-medium leading-none" for="yourName">Your Name *</label>
+                                            <input class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base" id="yourName" required="">
+                                        </div>
+                                        <div class="space-y-2">
+                                            <label class="text-sm font-medium leading-none" for="email">Email *</label>
+                                            <input type="email" class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base" id="email" required="">
+                                        </div>
+                                        <div class="space-y-2">
+                                            <label class="text-sm font-medium leading-none" for="message">How may we help you? *</label>
+                                            <textarea class="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm" id="message" required=""></textarea>
+                                        </div>
+                                        <button type="submit" class="w-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg font-semibold h-11 rounded-md px-8 inline-flex items-center justify-center text-lg">GET A QUOTE</button>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div id="why-us" class="py-3">
-                <div class="container">
-                    <h2 class="section-title">Why Choose Right Choice Striping?</h2>
-                    <div class="why-us-grid">
-                        <div class="why-us-item">
-                            <i class="fas fa-hard-hat"></i>
-                            <div><h4>Experienced & Certified</h4><p>Our team has the training and expertise to deliver top-quality results every time.</p></div>
-                        </div>
-                        <div class="why-us-item">
-                            <i class="fas fa-check-circle"></i>
-                            <div><h4>Commitment to Quality</h4><p>We use only the highest-grade, durable materials for a long-lasting, professional finish.</p></div>
-                        </div>
-                        <div class="why-us-item">
-                            <i class="fas fa-handshake"></i>
-                            <div><h4>Reliable & On Time</h4><p>We respect your schedule and work efficiently to minimize disruption to your business.</p></div>
-                        </div>
-                        <div class="why-us-item">
-                            <i class="fas fa-file-invoice-dollar"></i>
-                            <div><h4>Free, No-Obligation Quotes</h4><p>Get a clear, transparent, and competitive estimate for your project with no surprises.</p></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </section>
             
-            <div id="cta" class="bg-primary py-3 text-center">
-                <div class="container">
-                    <h2 style="color: white;">Ready to Improve Your Property's Safety and Appearance?</h2>
-                    <p class="lead" style="color: white;">Don't wait for faded lines or compliance issues to become a problem. Let's talk today!</p>
-                    <a href="#contact" class="btn nav-link">Get My Free Quote</a>
-                </div>
-            </div>
-        </section>
+            <section id="about" class="py-20 bg-background">
+                 <div class="container mx-auto px-4"><div class="grid lg:grid-cols-2 gap-12 items-center"><div class="space-y-8"><div class="space-y-4"><p class="text-primary font-semibold uppercase tracking-wide text-sm">About Us</p><h2 class="text-4xl font-bold text-foreground">Right Choice Striping!</h2><p class="text-muted-foreground text-lg leading-relaxed">At Right Choice Striping, we provide expert parking lot striping and pavement marking services. With years of experience and a focus on precision, we help property owners and managers maintain safe, organized, and professional-looking lots.</p><p class="text-muted-foreground text-lg leading-relaxed">From fresh layouts to restripes, our team brings attention to detail, quality workmanship, and dependable service to every job—no matter the size.</p><p class="text-foreground font-semibold text-lg">We're local, reliable, and committed to getting it right the first time—every time.</p></div><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg font-semibold h-11 rounded-md px-8">Read More</button></div><div class="grid grid-cols-1 md:grid-cols-2 gap-6"><div class="rounded-lg border text-card-foreground shadow-sm bg-card border-border hover:shadow-lg transition-shadow"><div class="p-6"><div class="flex items-start space-x-4"><div class="text-primary bg-primary/10 p-3 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg></div><div class="space-y-2"><h3 class="font-semibold text-foreground">Quality Workmanship</h3><p class="text-muted-foreground text-sm leading-relaxed">Precision and attention to detail in every stripe and marking</p></div></div></div></div><div class="rounded-lg border text-card-foreground shadow-sm bg-card border-border hover:shadow-lg transition-shadow"><div class="p-6"><div class="flex items-start space-x-4"><div class="text-primary bg-primary/10 p-3 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div><div class="space-y-2"><h3 class="font-semibold text-foreground">Reliable Service</h3><p class="text-muted-foreground text-sm leading-relaxed">On-time delivery and dependable service you can count on</p></div></div></div></div><div class="rounded-lg border text-card-foreground shadow-sm bg-card border-border hover:shadow-lg transition-shadow"><div class="p-6"><div class="flex items-start space-x-4"><div class="text-primary bg-primary/10 p-3 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg></div><div class="space-y-2"><h3 class="font-semibold text-foreground">Experienced Team</h3><p class="text-muted-foreground text-sm leading-relaxed">Professional expertise you can trust for all your striping needs</p></div></div></div></div><div class="rounded-lg border text-card-foreground shadow-sm bg-card border-border hover:shadow-lg transition-shadow"><div class="p-6"><div class="flex items-start space-x-4"><div class="text-primary bg-primary/10 p-3 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path><circle cx="12" cy="8" r="6"></circle></svg></div><div class="space-y-2"><h3 class="font-semibold text-foreground">Professional Results</h3><p class="text-muted-foreground text-sm leading-relaxed">Crisp, long-lasting results that keep your property looking sharp</p></div></div></div></div></div></div></div>
+            </section>
 
-        <!-- Line Striping Section -->
-        <section id="line-striping" class="page-section">
-            <div class="service-header py-3">
-                <div class="container">
-                    <h1>Professional Line Striping Services</h1>
-                    <p class="lead">Creating safe, organized, and professional-looking surfaces with precision and durability.</p>
-                </div>
-            </div>
-            <div class="py-3">
-                <div class="container">
-                    <div class="service-content">
-                        <div class="service-info">
-                            <h2>Crisp, Clean, and Built to Last</h2>
-                            <p>Clear and visible pavement markings are the first step to ensuring safety and efficiency on your property. Whether it's a commercial parking lot, a warehouse floor, or a private roadway, our professional line striping services provide the clarity and organization you need.</p>
-                            <h3>Our Line Striping Services Include:</h3>
-                            <ul>
-                                <li><i class="fas fa-check text-primary"></i> <strong>Parking Lot Striping:</strong> Stalls, directional arrows, loading zones, and fire lanes.</li>
-                                <li><i class="fas fa-check text-primary"></i> <strong>Warehouse Floor Markings:</strong> Safety paths, forklift lanes, and product zones.</li>
-                                <li><i class="fas fa-check text-primary"></i> <strong>Athletic Courts:</strong> Basketball, tennis, and pickleball court lines.</li>
-                                <li><i class="fas fa-check text-primary"></i> <strong>Stenciling:</strong> Custom lettering, numbering, and symbols.</li>
-                                <li><i class="fas fa-check text-primary"></i> <strong>Curb Painting:</strong> Color-coded curbs for fire lanes, loading zones, and no-parking areas.</li>
-                            </ul>
-                            <a href="#contact" class="btn btn-primary nav-link">Request a Quote for Line Striping</a>
-                        </div>
-                        <img src="https://images.unsplash.com/photo-1563453392212-9a36371a2e37?q=80&w=1974&auto=format&fit=crop" alt="Professional applying new stripes to a parking lot" class="service-image">
+            <section id="services" class="py-20 bg-muted/30">
+                 <div class="container mx-auto px-4">
+                    <div class="text-center mb-16">
+                        <p class="text-primary font-semibold uppercase tracking-wide text-sm mb-4">Our Services</p>
+                        <h2 class="text-4xl font-bold text-foreground mb-6">Complete Striping Solutions</h2>
+                        <p class="text-muted-foreground text-lg max-w-3xl mx-auto">From parking lot layouts to ADA compliance, we provide comprehensive striping and marking services to keep your property safe, organized, and professional.</p>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ADA Compliance Section -->
-        <section id="ada-compliance" class="page-section">
-            <div class="service-header py-3">
-                <div class="container">
-                    <h1>Expert ADA Compliance Markings</h1>
-                    <p class="lead">Ensure accessibility and avoid costly fines with our comprehensive ADA solutions.</p>
-                </div>
-            </div>
-            <div class="py-3">
-                <div class="container">
-                    <div class="service-content">
-                        <div class="service-info">
-                            <h2>Navigate ADA Regulations with Confidence</h2>
-                            <p>The Americans with Disabilities Act (ADA) has strict requirements for parking lots to ensure equal access for individuals with disabilities. Navigating these federal, state, and local codes can be complex. We remove the guesswork and guarantee your property is fully compliant.</p>
-                            <h3>Our ADA Compliance Services Ensure:</h3>
-                            <ul>
-                                <li><i class="fas fa-check text-primary"></i> <strong>Correct Number of Accessible Stalls:</strong> Based on your total parking capacity.</li>
-                                <li><i class="fas fa-check text-primary"></i> <strong>Proper Dimensions:</strong> Correct width for parking spaces and access aisles.</li>
-                                <li><i class="fas fa-check text-primary"></i> <strong>Van-Accessible Spaces:</strong> Clearly marked and properly sized.</li>
-                                <li><i class="fas fa-check text-primary"></i> <strong>Correct Signage:</strong> Required signs at the proper height.</li>
-                                <li><i class="fas fa-check text-primary"></i> <strong>Accessible Paths:</strong> Clearly marked paths from accessible parking to the entrance.</li>
-                            </ul>
-                            <a href="#contact" class="btn btn-primary nav-link">Ensure Your Compliance Today</a>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                        <div class="rounded-lg border text-card-foreground shadow-sm bg-background border-border hover:shadow-lg transition-all hover:-translate-y-1 overflow-hidden">
+                            <img src="https://placehold.co/600x400/1E40AF/FFFFFF?text=Parking+Lot+Striping" alt="Parking Lot Striping" class="w-full h-40 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-foreground mb-4">Parking Lot Striping</h3>
+                                <p class="text-muted-foreground mb-6 leading-relaxed">Professional line striping for parking spaces, traffic flow, and safety markings</p>
+                                <ul class="space-y-2">
+                                    <li class="text-sm text-muted-foreground flex items-center"><span class="w-2 h-2 bg-accent rounded-full mr-3 flex-shrink-0"></span>New layouts</li>
+                                    <li class="text-sm text-muted-foreground flex items-center"><span class="w-2 h-2 bg-accent rounded-full mr-3 flex-shrink-0"></span>Re-striping</li>
+                                    <li class="text-sm text-muted-foreground flex items-center"><span class="w-2 h-2 bg-accent rounded-full mr-3 flex-shrink-0"></span>Line maintenance</li>
+                                    <li class="text-sm text-muted-foreground flex items-center"><span class="w-2 h-2 bg-accent rounded-full mr-3 flex-shrink-0"></span>Traffic flow optimization</li>
+                                </ul>
+                            </div>
                         </div>
-                        <img src="https://images.unsplash.com/photo-1580554345898-63437145b2b2?q=80&w=1974&auto=format&fit=crop" alt="A clearly marked, ADA compliant handicap parking space with access aisle" class="service-image">
+                        <div class="rounded-lg border text-card-foreground shadow-sm bg-background border-border hover:shadow-lg transition-all hover:-translate-y-1 overflow-hidden">
+                           <img src="https://placehold.co/600x400/b91c1c/FFFFFF?text=Fire+Lane" alt="Fire Lane Striping" class="w-full h-40 object-cover">
+                           <div class="p-6">
+                                <h3 class="text-xl font-semibold text-foreground mb-4">Fire Lane Striping</h3>
+                                <p class="text-muted-foreground mb-6 leading-relaxed">Clearly marked fire lanes to ensure safety compliance and emergency access</p>
+                                <ul class="space-y-2">
+                                    <li class="text-sm text-muted-foreground flex items-center"><span class="w-2 h-2 bg-accent rounded-full mr-3 flex-shrink-0"></span>Red zone marking</li>
+                                    <li class="text-sm text-muted-foreground flex items-center"><span class="w-2 h-2 bg-accent rounded-full mr-3 flex-shrink-0"></span>No parking signs</li>
+                                    <li class="text-sm text-muted-foreground flex items-center"><span class="w-2 h-2 bg-accent rounded-full mr-3 flex-shrink-0"></span>Emergency access</li>
+                                    <li class="text-sm text-muted-foreground flex items-center"><span class="w-2 h-2 bg-accent rounded-full mr-3 flex-shrink-0"></span>Code compliance</li>
+                                </ul>
+                           </div>
+                        </div>
+                        <div class="rounded-lg border text-card-foreground shadow-sm bg-background border-border hover:shadow-lg transition-all hover:-translate-y-1 overflow-hidden">
+                            <img src="https://placehold.co/600x400/1d4ed8/FFFFFF?text=ADA+Compliance" alt="ADA Compliance" class="w-full h-40 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-foreground mb-4">ADA Compliance</h3>
+                                <p class="text-muted-foreground mb-6 leading-relaxed">Accessible parking spaces and pathways that meet all ADA requirements</p>
+                                <ul class="space-y-2">
+                                    <li class="text-sm text-muted-foreground flex items-center"><span class="w-2 h-2 bg-accent rounded-full mr-3 flex-shrink-0"></span>Handicap spaces</li>
+                                    <li class="text-sm text-muted-foreground flex items-center"><span class="w-2 h-2 bg-accent rounded-full mr-3 flex-shrink-0"></span>Access aisles</li>
+                                    <li class="text-sm text-muted-foreground flex items-center"><span class="w-2 h-2 bg-accent rounded-full mr-3 flex-shrink-0"></span>Pathway marking</li>
+                                    <li class="text-sm text-muted-foreground flex items-center"><span class="w-2 h-2 bg-accent rounded-full mr-3 flex-shrink-0"></span>Symbol installation</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="rounded-lg border text-card-foreground shadow-sm bg-background border-border hover:shadow-lg transition-all hover:-translate-y-1 overflow-hidden">
+                            <img src="https://placehold.co/600x400/4b5563/FFFFFF?text=Custom+Stencils" alt="Custom Stencils" class="w-full h-40 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-foreground mb-4">Custom Stencils</h3>
+                                <p class="text-muted-foreground mb-6 leading-relaxed">Custom logos, numbers, and directional markings for your specific needs</p>
+                                <ul class="space-y-2">
+                                    <li class="text-sm text-muted-foreground flex items-center"><span class="w-2 h-2 bg-accent rounded-full mr-3 flex-shrink-0"></span>Company logos</li>
+                                    <li class="text-sm text-muted-foreground flex items-center"><span class="w-2 h-2 bg-accent rounded-full mr-3 flex-shrink-0"></span>Numbering systems</li>
+                                    <li class="text-sm text-muted-foreground flex items-center"><span class="w-2 h-2 bg-accent rounded-full mr-3 flex-shrink-0"></span>Directional arrows</li>
+                                    <li class="text-sm text-muted-foreground flex items-center"><span class="w-2 h-2 bg-accent rounded-full mr-3 flex-shrink-0"></span>Custom designs</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="rounded-lg border text-card-foreground shadow-sm bg-background border-border hover:shadow-lg transition-all hover:-translate-y-1 overflow-hidden">
+                           <img src="https://placehold.co/600x400/f59e0b/FFFFFF?text=Wheel+Stops" alt="Wheel Stop Installation" class="w-full h-40 object-cover">
+                           <div class="p-6">
+                                <h3 class="text-xl font-semibold text-foreground mb-4">Wheel Stop Installation</h3>
+                                <p class="text-muted-foreground mb-6 leading-relaxed">Durable wheel stops to protect property and define parking boundaries</p>
+                                <ul class="space-y-2">
+                                    <li class="text-sm text-muted-foreground flex items-center"><span class="w-2 h-2 bg-accent rounded-full mr-3 flex-shrink-0"></span>Concrete stops</li>
+                                    <li class="text-sm text-muted-foreground flex items-center"><span class="w-2 h-2 bg-accent rounded-full mr-3 flex-shrink-0"></span>Rubber alternatives</li>
+                                    <li class="text-sm text-muted-foreground flex items-center"><span class="w-2 h-2 bg-accent rounded-full mr-3 flex-shrink-0"></span>Proper spacing</li>
+                                    <li class="text-sm text-muted-foreground flex items-center"><span class="w-2 h-2 bg-accent rounded-full mr-3 flex-shrink-0"></span>Secure installation</li>
+                                </ul>
+                           </div>
+                        </div>
+                        <div class="rounded-lg border text-card-foreground shadow-sm bg-background border-border hover:shadow-lg transition-all hover:-translate-y-1 overflow-hidden">
+                            <img src="https://placehold.co/600x400/06b6d4/FFFFFF?text=Pressure+Washing" alt="Pressure Washing" class="w-full h-40 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-foreground mb-4">Pressure Washing</h3>
+                                <p class="text-muted-foreground mb-6 leading-relaxed">Complete surface preparation and cleaning for optimal striping results</p>
+                                <ul class="space-y-2">
+                                    <li class="text-sm text-muted-foreground flex items-center"><span class="w-2 h-2 bg-accent rounded-full mr-3 flex-shrink-0"></span>Surface cleaning</li>
+                                    <li class="text-sm text-muted-foreground flex items-center"><span class="w-2 h-2 bg-accent rounded-full mr-3 flex-shrink-0"></span>Paint removal</li>
+                                    <li class="text-sm text-muted-foreground flex items-center"><span class="w-2 h-2 bg-accent rounded-full mr-3 flex-shrink-0"></span>Preparation work</li>
+                                    <li class="text-sm text-muted-foreground flex items-center"><span class="w-2 h-2 bg-accent rounded-full mr-3 flex-shrink-0"></span>Maintenance cleaning</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
+                    <div class="text-center mt-12"><a href="#quote-form" class="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg font-semibold h-11 rounded-md px-8 inline-flex items-center justify-center">Get Your Free Quote Today</a></div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Pavement Sealing Section -->
-        <section id="pavement-sealing" class="page-section">
-            <div class="service-header py-3">
-                <div class="container">
-                    <h1>High-Quality Pavement Sealing</h1>
-                    <p class="lead">Protect your asphalt investment with a rich, black finish that lasts.</p>
-                </div>
-            </div>
-            <div class="py-3">
-                <div class="container">
-                    <div class="service-content">
-                        <div class="service-info">
-                            <h2>Protect, Preserve, and Beautify</h2>
-                            <p>Asphalt is a significant investment. Pavement sealing (or sealcoating) is the most critical maintenance step you can take to protect it. Our commercial-grade sealant forms a tough, protective layer that shields your pavement from its worst enemies: water, oil, gas, and UV rays.</p>
-                            <h3>The Benefits of Pavement Sealing:</h3>
-                            <ul>
-                                <li><i class="fas fa-check text-primary"></i> <strong>Extends Pavement Life:</strong> Prevents oxidation and water penetration, the leading causes of cracks.</li>
-                                <li><i class="fas fa-check text-primary"></i> <strong>Improves Appearance:</strong> Restores the rich, black finish of new asphalt, boosting curb appeal.</li>
-                                <li><i class="fas fa-check text-primary"></i> <strong>Resists Gas & Oil Spills:</strong> Prevents fuel and oil from softening and damaging the asphalt.</li>
-                                <li><i class="fas fa-check text-primary"></i> <strong>Saves You Money:</strong> Proactive sealing costs pennies on the dollar compared to expensive asphalt repairs or replacement.</li>
-                            </ul>
-                            <a href="#contact" class="btn btn-primary nav-link">Get a Quote to Seal Your Pavement</a>
-                        </div>
-                        <img src="https://images.unsplash.com/photo-1621361253043-f1c8d523d0a6?q=80&w=1964&auto=format&fit=crop" alt="A freshly sealcoated parking lot with a deep black finish" class="service-image">
+            <section id="gallery" class="py-20 bg-background">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-16">
+                        <p class="text-primary font-semibold uppercase tracking-wide text-sm mb-4">Our Work</p>
+                        <h2 class="text-4xl font-bold text-foreground mb-6">Project Gallery</h2>
+                        <p class="text-muted-foreground text-lg max-w-3xl mx-auto">Take a look at the quality and precision of our work. We take pride in every line we paint.</p>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="page-section">
-            <div class="service-header py-3">
-                <div class="container">
-                    <h1>Your Trusted Pavement Partner</h1>
-                    <p class="lead">Combining craftsmanship, quality materials, and a commitment to our clients.</p>
-                </div>
-            </div>
-            <div class="py-3">
-                <div class="container">
-                    <div class="service-content">
-                        <div class="service-info">
-                            <h2>Our Story</h2>
-                            <p>Right Choice Striping was founded with a simple mission: to provide businesses and property managers with reliable, high-quality pavement maintenance services. We saw a need for a company that not only did great work but also communicated clearly, showed up on time, and stood behind its services.</p>
-                            <p>Today, we are proud to be a local leader in line striping, ADA compliance, and pavement sealing. Our success is built on the foundation of satisfied customers who trust us to protect their investment and keep their properties safe and professional.</p>
-                            <h2>Our Mission & Guarantee</h2>
-                            <p>Our mission is to deliver exceptional results and unparalleled customer service on every project. We guarantee to use only high-quality, durable materials, employ skilled professionals, and provide clear, fair, and transparent pricing. Your satisfaction is our top priority.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="group overflow-hidden rounded-lg">
+                            <img src="https://placehold.co/600x400/1E40AF/FFFFFF?text=Project+1" alt="Parking lot striping project 1" width="600" height="400" class="h-full w-full object-cover object-center transition-transform duration-300 ease-in-out group-hover:scale-105">
                         </div>
-                        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2132&auto=format&fit=crop" alt="A photo of the Right Choice Striping team" class="service-image">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Gallery Section -->
-        <section id="gallery" class="page-section">
-            <div class="service-header py-3">
-                <div class="container">
-                    <h1>Our Work Gallery</h1>
-                    <p class="lead">A picture is worth a thousand words. See the quality and precision we bring to every job.</p>
-                </div>
-            </div>
-            <div class="py-3">
-                <div class="container">
-                    <div class="gallery-grid">
-                        <div class="gallery-item">
-                            <img src="https://media.istockphoto.com/id/1356830579/photo/newly-striped-parking-lot.jpg?s=612x612&w=0&k=20&c=oJtKltmJGjsZ5SVllCVwm3cJzHQafcZmgbmbpWkH3tw=" alt="Newly striped parking lot">
-                            <div class="gallery-overlay">Line Striping</div>
+                        <div class="group overflow-hidden rounded-lg">
+                            <img src="https://placehold.co/600x400/1E40AF/FFFFFF?text=Project+2" alt="Parking lot striping project 2" width="600" height="400" class="h-full w-full object-cover object-center transition-transform duration-300 ease-in-out group-hover:scale-105">
                         </div>
-                        <div class="gallery-item">
-                            <img src="https://images.pexels.com/photos/5331086/pexels-photo-5331086.jpeg?auto=compress&cs=tinysrgb&w=600" alt="ADA handicap symbol painted on asphalt">
-                            <div class="gallery-overlay">ADA Compliance</div>
+                        <div class="group overflow-hidden rounded-lg">
+                            <img src="https://placehold.co/600x400/1E40AF/FFFFFF?text=Project+3" alt="Parking lot striping project 3" width="600" height="400" class="h-full w-full object-cover object-center transition-transform duration-300 ease-in-out group-hover:scale-105">
                         </div>
-                        <div class="gallery-item">
-                            <img src="https://media.istockphoto.com/id/1282788650/photo/asphalt-road-with-filled-cracks-repair-liquid-of-the-fix-road.jpg?s=612x612&w=0&k=20&c=2ZSu6Of84_fdA8ekDnsdEYWeVs48yY7HOb82PEMPsd8=" alt="Freshly sealcoated parking lot">
-                            <div class="gallery-overlay">Pavement Sealing</div>
+                        <div class="group overflow-hidden rounded-lg">
+                            <img src="https://placehold.co/600x400/1E40AF/FFFFFF?text=Project+4" alt="Parking lot striping project 4" width="600" height="400" class="h-full w-full object-cover object-center transition-transform duration-300 ease-in-out group-hover:scale-105">
                         </div>
-                        <div class="gallery-item">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXLOTcgBsQTvKn0V8TtiwFea_EKYtY74mxIg&s" alt="Directional arrow on pavement">
-                            <div class="gallery-overlay">Line Striping</div>
+                        <div class="group overflow-hidden rounded-lg">
+                            <img src="https://placehold.co/600x400/1E40AF/FFFFFF?text=Project+5" alt="Parking lot striping project 5" width="600" height="400" class="h-full w-full object-cover object-center transition-transform duration-300 ease-in-out group-hover:scale-105">
                         </div>
-                        <div class="gallery-item">
-                            <img src="https://images.pexels.com/photos/13998533/pexels-photo-13998533.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Red painted fire lane curb">
-                            <div class="gallery-overlay">Curb Painting</div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="https://images.pexels.com/photos/7935246/pexels-photo-7935246.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Van accessible ADA stall">
-                            <div class="gallery-overlay">ADA Compliance</div>
-                        </div>
-                         <div class="gallery-item">
-                            <img src="https://images.pexels.com/photos/6462723/pexels-photo-6462723.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Before and after pavement sealing">
-                            <div class="gallery-overlay">Pavement Sealing</div>
-                        </div>
-                         <div class="gallery-item">
-                            <img src="https://penncoatinc.com/wp-content/uploads/2021/10/pc-line-striping-content-6.jpg" alt="Safety lines in a warehouse">
-                            <div class="gallery-overlay">Warehouse Striping</div>
+                        <div class="group overflow-hidden rounded-lg">
+                            <img src="https://placehold.co/600x400/1E40AF/FFFFFF?text=Project+6" alt="Parking lot striping project 6" width="600" height="400" class="h-full w-full object-cover object-center transition-transform duration-300 ease-in-out group-hover:scale-105">
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </main>
 
-        <!-- Blog Section -->
-        <section id="blog" class="page-section">
-            <div class="service-header py-3">
-                <div class="container">
-                    <h1>Blog & Resources</h1>
-                    <p class="lead">Information and insights to help you manage and maintain your property's pavement.</p>
-                </div>
-            </div>
-            <div class="py-3">
-                <div class="container">
-                    <article class="blog-post">
-                        <h3>The True Cost of Cutting Corners: Why Quality Materials Matter</h3>
-                        <p class="meta">Posted on July 1, 2025</p>
-                        <p>It can be tempting to opt for the cheapest quote, but when it comes to pavement markings, you get what you pay for. Low-quality paint fades quickly, chips easily, and requires frequent re-application, costing you more in the long run...</p>
-                        <a href="#blog-post-1" class="nav-link">Read More</a>
-                    </article>
-
-                    <article class="blog-post">
-                        <h3>Beyond the Lines: How a Well-Maintained Lot Boosts Your Business</h3>
-                        <p class="meta">Posted on June 22, 2025</p>
-                        <p>Your parking lot is the first thing your customers see. A clean, well-marked lot projects an image of professionalism and care, while a faded, confusing lot can deter visitors. Crisp lines, clear directional arrows, and proper ADA markings create a positive first impression...</p>
-                        <a href="#blog-post-2" class="nav-link">Read More</a>
-                    </article>
-
-                    <article class="blog-post">
-                        <h3>The Critical Importance of ADA Compliance for Your Business</h3>
-                        <p class="meta">Posted on June 15, 2025</p>
-                        <p>Ensuring your parking lot is ADA compliant is not just about avoiding fines—it's about providing safe and equal access to everyone in your community. This post breaks down the key requirements you need to know...</p>
-                        <a href="#blog-post-3" class="nav-link">Read More</a>
-                    </article>
-
-                    <article class="blog-post">
-                        <h3>How Often Should You Restripe Your Parking Lot?</h3>
-                        <p class="meta">Posted on June 8, 2025</p>
-                        <p>Faded lines are more than just an eyesore; they can be a safety hazard. The frequency of restriping depends on traffic volume and climate. For most commercial lots in our area, we recommend a refresh every 18-24 months...</p>
-                        <a href="#blog-post-4" class="nav-link">Read More</a>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Blog Post 1: Quality Materials -->
-        <section id="blog-post-1" class="page-section">
-            <div class="py-3">
-                <div class="container article-content">
-                    <h2>The True Cost of Cutting Corners: Why Quality Materials Matter</h2>
-                    <p class="meta">Posted on July 1, 2025 by Right Choice Striping</p>
-                    <p>It can be tempting to opt for the cheapest quote when you're looking to get your parking lot striped. However, when it comes to pavement markings, you truly get what you pay for. Low-quality, water-downed paint might look good for a few weeks, but it fades quickly under the sun, chips easily under traffic, and ultimately requires frequent and costly re-application.</p>
-                    <p>At Right Choice Striping, we believe in doing the job right the first time. That's why we exclusively use premium, durable traffic paint from trusted manufacturers. This paint is specifically formulated to withstand heavy vehicle traffic, harsh weather conditions, and UV degradation. While the initial investment might be slightly higher, the long-term value is undeniable. Our lines stay brighter for longer, meaning your lot remains safe and professional-looking for years, not months. It's an investment in longevity, safety, and a professional image that pays for itself by reducing the need for constant touch-ups and maintenance.</p>
-                    <a href="#blog" class="btn btn-primary nav-link">Back to Blog</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Blog Post 2: Boosts Business -->
-        <section id="blog-post-2" class="page-section">
-            <div class="py-3">
-                <div class="container article-content">
-                    <h2>Beyond the Lines: How a Well-Maintained Lot Boosts Your Business</h2>
-                    <p class="meta">Posted on June 22, 2025 by Right Choice Striping</p>
-                    <p>Your parking lot is the first physical interaction a customer has with your business. What message is it sending? A clean, well-marked lot with clear, logical traffic flow projects an image of professionalism, competence, and care. It tells customers that you pay attention to the details and value their safety and experience.</p>
-                    <p>Conversely, a faded, cracked, and confusing lot can deter visitors before they even walk through your door. It can create a perception of neglect and disorganization. Crisp lines, clear directional arrows, properly designated fire lanes, and compliant ADA markings are not just functional; they are a critical part of your brand's first impression. Don't underestimate the power of your pavement—it's an extension of your business and a key factor in creating a positive customer experience from the moment they arrive.</p>
-                    <a href="#blog" class="btn btn-primary nav-link">Back to Blog</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Blog Post 3: ADA Compliance -->
-        <section id="blog-post-3" class="page-section">
-            <div class="py-3">
-                <div class="container article-content">
-                    <h2>The Critical Importance of ADA Compliance for Your Business</h2>
-                    <p class="meta">Posted on June 15, 2025 by Right Choice Striping</p>
-                    <p>Ensuring your parking lot is compliant with the Americans with Disabilities Act (ADA) is a legal requirement, but it's also much more than that. It's a statement that your business is welcoming and accessible to every member of the community. Non-compliance can lead to significant fines, lawsuits, and damage to your reputation.</p>
-                    <p>The regulations can be complex, covering everything from the precise number of accessible stalls required based on your lot's total capacity, to the exact dimensions of those stalls and their access aisles, to the height and placement of signage. At Right Choice Striping, we are experts in these regulations. We take the guesswork out of compliance, ensuring every aspect of your lot meets or exceeds federal, state, and local standards. Let us help you provide safe, equal access and protect your business from liability.</p>
-                    <a href="#blog" class="btn btn-primary nav-link">Back to Blog</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Blog Post 4: Restripe Frequency -->
-        <section id="blog-post-4" class="page-section">
-            <div class="py-3">
-                <div class="container article-content">
-                    <h2>How Often Should You Restripe Your Parking Lot?</h2>
-                    <p class="meta">Posted on June 8, 2025 by Right Choice Striping</p>
-                    <p>Faded lines are more than just an aesthetic issue; they are a significant safety hazard. Worn markings can lead to parking confusion, inefficient use of space, and even accidents. So, how often should you have your lot restriped?</p>
-                    <p>The answer depends on two main factors: traffic volume and climate. A high-traffic retail center will require more frequent maintenance than a small office park. Similarly, areas with harsh sun and heavy rain will see paint degrade faster. As a general rule, for most commercial lots in our region, we recommend a professional restriping every 18 to 24 months. This schedule ensures your markings remain highly visible, keeping your lot safe, organized, and looking its best. We can work with you to assess your specific needs and create a maintenance schedule that protects your property and your budget.</p>
-                    <a href="#blog" class="btn btn-primary nav-link">Back to Blog</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="page-section">
-            <div class="service-header py-3">
-                <div class="container">
-                    <h1>Get a Free, No-Obligation Quote</h1>
-                    <p class="lead">We're ready to help. Fill out the form below or give us a call!</p>
-                </div>
-            </div>
-            <div class="py-3">
-                <div class="container">
-                    <div class="contact-grid">
-                        <div class="contact-form">
-                            <h3>Send Us a Message</h3>
-                            <form action="#">
-                                <div class="form-group">
-                                    <label for="name">Name</label>
-                                    <input type="text" id="name" name="name" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" id="email" name="email" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="phone">Phone</label>
-                                    <input type="tel" id="phone" name="phone">
-                                </div>
-                                <div class="form-group">
-                                    <label for="service">Service of Interest</label>
-                                    <select id="service" name="service">
-                                        <option value="general">General Inquiry</option>
-                                        <option value="striping">Line Striping</option>
-                                        <option value="ada">ADA Compliance</option>
-                                        <option value="sealing">Pavement Sealing</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="message">Message</label>
-                                    <textarea id="message" name="message" rows="5" required></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Submit Request</button>
-                            </form>
+        <footer id="contact" class="bg-hero-bg text-hero-text">
+            <div class="container mx-auto px-4 py-16">
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-3">
+                            <img class="h-12 w-12" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGNpcmNsZSBjeD0iMTI4IiBjeT0iMTI4IiByPSIxMjAiIGZpbGw9IiMxRTQwQUYiLz4KICA8cmVjdCB4PSI0MCIgeT0iMTE1IiB3aWR0aD0iMTc2IiBoZWlnaHQ9IjgiIGZpbGw9IiNFQUIzMDgiLz4KICA8cmVjdCB4PSI0MCIgeT0iMTMzIiB3aWR0aD0iMTc2IiBoZWlnaHQ9IjgiIGZpbGw9IiNFQUIzMDgiLz4KICA8cG9seWdvbiBwb2ludHM9IjEyOCw2MCAxNjgsMTAwIDEyOCwxMDAiIGZpbGw9IiNFQUIzMDgiLz4KICA8dGV4dCB4PSIxMjgiIHk9IjE5MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iI0VBQjMwOCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+VEVYQVM8L3RleHQ+Cjwvc3ZnPg==" alt="Logo">
+                            <div class="text-xl font-bold">Right Choice Striping</div>
                         </div>
-                        <div class="contact-info">
-                            <h3>Contact Information</h3>
-                            <p><i class="fas fa-map-marker-alt text-primary"></i> 123 Pavement Way, Houston, TX 77001</p>
-                            <p><i class="fas fa-phone text-primary"></i> (555) 123-4567</p>
-                            <p><i class="fas fa-envelope text-primary"></i> quotes@rightchoicestriping.com</p>
-                            <p><i class="fas fa-clock text-primary"></i> <strong>Business Hours:</strong><br>
-                            Monday - Friday: 8:00 AM - 5:00 PM<br>
-                            Saturday: By Appointment</p>
+                        <p class="text-hero-text/80 leading-relaxed">Professional parking lot striping and pavement marking services with quality, reliability, and precision.</p>
+                        <a href="#quote-form" class="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold h-11 rounded-md px-8 inline-flex items-center justify-center">Get Free Quote</a>
+                    </div>
+                    <div class="space-y-6">
+                        <h3 class="text-lg font-semibold text-accent">Quick Links</h3>
+                        <nav class="space-y-3">
+                            <a href="#home" class="block text-hero-text/80 hover:text-accent transition-colors">Home</a>
+                            <a href="#about" class="block text-hero-text/80 hover:text-accent transition-colors">About</a>
+                            <a href="#services" class="block text-hero-text/80 hover:text-accent transition-colors">Services</a>
+                            <a href="#gallery" class="block text-hero-text/80 hover:text-accent transition-colors">Gallery</a>
+                            <a href="#contact" class="block text-hero-text/80 hover:text-accent transition-colors">Contact</a>
+                        </nav>
+                    </div>
+                    <div class="space-y-6">
+                        <h3 class="text-lg font-semibold text-accent">Services</h3>
+                        <nav class="space-y-3">
+                            <div class="block text-hero-text/80 text-sm">Parking Lot Striping</div>
+                            <div class="block text-hero-text/80 text-sm">Fire Lane Striping</div>
+                            <div class="block text-hero-text/80 text-sm">ADA Compliance</div>
+                            <div class="block text-hero-text/80 text-sm">Custom Stencils</div>
+                            <div class="block text-hero-text/80 text-sm">Wheel Stop Installation</div>
+                            <div class="block text-hero-text/80 text-sm">Pressure Washing</div>
+                        </nav>
+                    </div>
+                    <div class="space-y-6">
+                        <h3 class="text-lg font-semibold text-accent">Contact Info</h3>
+                        <div class="space-y-4">
+                            <a href="tel:832-509-7785" class="flex items-center space-x-3 text-hero-text/80 hover:text-accent transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-accent"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                <span>832-509-7785</span>
+                            </a>
+                            <a href="mailto:info@rightchoicestriping.com" class="flex items-center space-x-3 text-hero-text/80 hover:text-accent transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-accent"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                                <span>info@rightchoicestriping.com</span>
+                            </a>
+                            <div class="flex items-start space-x-3 text-hero-text/80">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-accent mt-0.5"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                <span>Nationwide Service<br>Professional Results</span>
+                            </div>
+                            <div class="flex items-start space-x-3 text-hero-text/80">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-accent mt-0.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                <span>Mon - Fri: 7:00 AM - 6:00 PM<br>Saturday: 8:00 AM - 4:00 PM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-hero-text/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                        <p class="text-hero-text/60 text-sm">© 2024 Right Choice Striping. All rights reserved.</p>
+                        <div class="flex space-x-6">
+                            <a href="#" class="text-hero-text/60 hover:text-accent text-sm transition-colors">Privacy Policy</a>
+                            <a href="#" class="text-hero-text/60 hover:text-accent text-sm transition-colors">Terms of Service</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
-
-    <footer id="main-footer" class="py-2 bg-dark">
-        <div class="container footer-content">
-            <p>Copyright &copy; 2025, Right Choice Striping</p>
-            <ul>
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-        </div>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            const navList = document.querySelector('.nav-list');
-            const navLinks = document.querySelectorAll('.nav-link');
-            const pageSections = document.querySelectorAll('.page-section');
-
-            // Toggle mobile menu
-            mobileMenu.addEventListener('click', () => {
-                navList.classList.toggle('active');
-            });
-
-            function navigateTo(hash) {
-                // If no hash, default to #home
-                if (!hash) {
-                    hash = '#home';
-                }
-                
-                // Deactivate all sections and links
-                pageSections.forEach(section => section.classList.remove('active'));
-                document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('current'));
-
-                // Activate the target section
-                const targetSection = document.querySelector(hash);
-                if (targetSection) {
-                    targetSection.classList.add('active');
-                    window.scrollTo(0, 0); // Scroll to top
-                } else {
-                    // Fallback to home if hash is invalid
-                    document.querySelector('#home').classList.add('active');
-                }
-
-                // Activate the corresponding nav link in the main menu
-                const mainNavLink = document.querySelector(`.nav-list a[href="${hash}"]`);
-                 if (mainNavLink) {
-                    mainNavLink.classList.add('current');
-                } else {
-                     // If it's a blog post, highlight the main "Blog" link
-                    if (hash.startsWith('#blog-post')) {
-                         document.querySelector(`.nav-list a[href="#blog"]`).classList.add('current');
-                    } else {
-                         document.querySelector(`.nav-list a[href="#home"]`).classList.add('current');
-                    }
-                }
-
-                // Close mobile menu after navigation
-                if (navList.classList.contains('active')) {
-                    navList.classList.remove('active');
-                }
-            }
-
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const hash = this.getAttribute('href');
-                    navigateTo(hash);
-                    // Update URL hash for history
-                    if(history.pushState) {
-                        history.pushState(null, null, hash);
-                    } else {
-                        location.hash = hash;
-                    }
-                });
-            });
-
-            // Handle browser back/forward buttons
-            window.addEventListener('popstate', function() {
-                navigateTo(window.location.hash);
-            });
-
-            // Initial page load
-            navigateTo(window.location.hash || '#home');
-        });
-    </script>
+        </footer>
+    </div>
 </body>
 </html>
