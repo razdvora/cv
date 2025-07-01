@@ -78,7 +78,7 @@
             <div class="container mx-auto px-4">
                 <div class="flex items-center justify-between h-16">
                     <div class="flex items-center space-x-3">
-                        <img class="h-12 w-auto" src="images/ICON.PNG" alt="Right Choice Striping Logo">
+                        <img class="h-12 w-auto" src="images/icon.PNG" alt="Right Choice Striping Logo">
                     </div>
                     <nav class="hidden md:flex space-x-8">
                         <a href="#home" class="text-foreground hover:text-primary transition-colors font-medium">Home</a>
@@ -103,14 +103,21 @@
         </header>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden fixed inset-0 bg-background z-40 p-8">
-            <nav class="flex flex-col space-y-8 mt-16 text-center">
+        <div id="mobile-menu" class="hidden fixed inset-0 bg-background z-40 p-8 flex flex-col">
+            <nav class="flex flex-col space-y-8 text-center">
                 <a href="#home" class="text-2xl text-foreground hover:text-primary transition-colors font-medium">Home</a>
                 <a href="#about" class="text-2xl text-foreground hover:text-primary transition-colors font-medium">About</a>
                 <a href="#services" class="text-2xl text-foreground hover:text-primary transition-colors font-medium">Services</a>
                 <a href="#gallery" class="text-2xl text-foreground hover:text-primary transition-colors font-medium">Gallery</a>
                 <a href="#contact" class="text-2xl text-foreground hover:text-primary transition-colors font-medium">Contact</a>
             </nav>
+            <div class="mt-auto pt-8 space-y-4">
+                 <a href="tel:832-509-7785" class="flex items-center justify-center space-x-2 text-xl text-primary hover:text-primary/80 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    <span class="font-semibold">832-509-7785</span>
+                </a>
+                <a href="#quote-form" class="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg font-semibold h-11 rounded-md px-8 inline-flex items-center justify-center text-lg w-full">GET A FREE QUOTE</a>
+            </div>
         </div>
 
         <main>
@@ -335,7 +342,7 @@
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div class="space-y-6">
                         <div class="flex items-center space-x-3">
-                            <img class="h-12 w-auto" src="images/ICON.PNG" alt="Right Choice Striping Logo">
+                            <img class="h-12 w-auto" src="images/icon.PNG" alt="Right Choice Striping Logo">
                         </div>
                         <p class="text-hero-text/80 leading-relaxed">Professional parking lot striping and pavement marking services with quality, reliability, and precision.</p>
                         <a href="#quote-form" class="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold h-11 rounded-md px-8 inline-flex items-center justify-center">Get Free Quote</a>
