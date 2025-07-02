@@ -41,7 +41,10 @@
             --hero-bg: #222531;
             --hero-text: #ffffff;
         }
-
+/* This might work, but is not recommended */
+        #icon {
+          height: 80px !important;
+        }
         html {
             scroll-behavior: smooth;
         }
@@ -78,7 +81,7 @@
             <div class="container mx-auto px-4">
                 <div class="flex items-center justify-between h-20">
                     <div class="flex items-center space-x-3">
-                        <img class="h-20 w-auto" src="images/icon.png" alt="Right Choice Striping Logo">
+                        <img id="icon"class="h-20 w-auto" src="images/icon.png" alt="Right Choice Striping Logo">
                     </div>
                     <nav class="hidden md:flex space-x-8">
                         <a href="#home" class="text-foreground hover:text-primary transition-colors font-medium">Home</a>
